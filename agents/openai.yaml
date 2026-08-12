@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 图片去噪强度控制器"
+  short_description: "一键扫描最佳安全强度，明显去噪并自动保留原图细节"
+  default_prompt: "Use $repair-ai-image-quality at strength 60 to visibly denoise this AI-generated image while preserving its original details, colors, and lighting."
