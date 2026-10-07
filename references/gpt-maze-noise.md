@@ -239,6 +239,25 @@ variants (GPT 2.5 low/medium, GPT Image 2 medium) and edit-chain outputs.
 - GPT edit chains: the grid persists in every round (z 69–80). The maze score
   roughly doubled after the first edit (0.05 → 0.10).
 
+### Which materials carry the maze (2026-10)
+
+Ten close-ups rendered with gpt-image-2.5 at 2K, one per material, run through the
+detector (maze score / share of the frame flagged):
+
+| material | score | flagged |
+|---|---|---|
+| suede | 0.48 | 23 % |
+| lime-plaster wall | 0.22 | 20 % |
+| linen bedding | 0.09 | 8 % |
+| camel wool coat | 0.02 | 2 % |
+| pebbled leather | 0.02 | 1 % (below threshold) |
+| knit sweater, terry towel, shaggy rug, memory foam, skin close-up | ≤ 0.004 | 0 % |
+
+The maze lives on fine, matte, low-contrast surfaces (suede, velvet, plaster, linen),
+where GPT's upsampler has to invent sub-texture. Coarse or high-contrast textures
+(cable knit, terry loops, pebbled grain, pores) are not affected. One render per
+material: treat it as a direction, not a rate.
+
 ## Tuning
 
 - `--strength` up to 60 scales the learned correction: 60 (default) removes all
