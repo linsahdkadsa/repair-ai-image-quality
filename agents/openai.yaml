@@ -1,4 +1,4 @@
 interface:
-  display_name: "AI 图片去噪强度控制器"
-  short_description: "一键扫描最佳安全强度，明显去噪并自动保留原图细节"
-  default_prompt: "Use $repair-ai-image-quality at strength 60 to visibly denoise this AI-generated image while preserving its original details, colors, and lighting."
+  display_name: "AI 图修复：GPT 迷宫纹 + banana 偏色"
+  short_description: "去掉 GPT image 的迷宫/蚯蚓纹噪点；把 banana 改图的洋红偏色校回原图；用产品实拍图修正画错的产品细节"
+  default_prompt: "Use $repair-ai-image-quality: remove GPT-image maze noise from these images, and if they are nano-banana edits, match their colours back to the original base image (anchor to the very first image, not the previous round)."
