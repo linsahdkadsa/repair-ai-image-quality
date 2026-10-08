@@ -317,6 +317,14 @@ def transplant_test(tmp):
     check("transplant drift check", acc.get("good") is True and acc.get("moved") is False, f"accepted={acc}")
 
 
+def portrait_test():
+    import portrait
+    ok = portrait.YUNET.exists()
+    flat = np.full((600, 450, 3), 0.6, np.float32) + RNG.normal(0, 0.02, (600, 450, 3)).astype(np.float32)
+    info = portrait.portrait_info(np.clip(flat, 0, 1)) if ok else {}
+    check("face detector loads, no face on a plain image", ok and info.get("portrait") is False, f"model={'ok' if ok else 'missing'} info={info}")
+
+
 def main():
     with tempfile.TemporaryDirectory() as tmp:
         maze_test(tmp)
@@ -327,6 +335,7 @@ def main():
         color_dependent_test(tmp)
         grey_source_test(tmp)
         transplant_test(tmp)
+        portrait_test()
     print("\nALL PASS" if not FAILS else f"\nFAILED: {', '.join(FAILS)}")
     sys.exit(1 if FAILS else 0)
 

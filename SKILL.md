@@ -1,6 +1,6 @@
 ---
 name: repair-ai-image-quality
-description: Fixes two systematic defects of AI image models, locally and deterministically (no regeneration). (1) GPT image (gpt-image-1 / 2 / 2.5, ChatGPT) "maze / worm" texture noise - labyrinth squiggles on velvet, knit, foam, skin, walls that make surfaces look dirty or grainy. (2) Gemini nano-banana (banana-pro, banana-2) edit colour drift - unchanged areas come back magenta/pink with a tone shift versus the original, and the drift accumulates over multi-round edits. Use when the user mentions GPT 生图噪点 / 颗粒 / 蚯蚓纹 / 迷宫纹 / 绒面发脏, or banana 改图偏洋红 / 偏粉 / 偏紫 / 色调和原图不一致 / 越改越红, or wants an edited image's colours matched back to its original 底图. Also: (3) product details an image model drew wrong (stripes, overlays, logos, embossed text) can be restored from a real product photo with `transplant` - use when the user says 产品细节不对 / 条纹不对 / logo 字乱 / 还原产品.
+description: Fixes two systematic defects of AI image models, locally and deterministically (no regeneration). (1) GPT image (gpt-image-1 / 2 / 2.5, ChatGPT) "maze / worm" texture noise - labyrinth squiggles on velvet, knit, foam, skin, walls that make surfaces look dirty or grainy. (2) Gemini nano-banana (banana-pro, banana-2) edit colour drift - unchanged areas come back magenta/pink with a tone shift versus the original, and the drift accumulates over multi-round edits. Use when the user mentions GPT 生图噪点 / 颗粒 / 蚯蚓纹 / 迷宫纹 / 绒面发脏, or banana 改图偏洋红 / 偏粉 / 偏紫 / 色调和原图不一致 / 越改越红, or wants an edited image's colours matched back to its original 底图. Also: (3) AI portrait skin (crackled or plastic) via a real-detail upscaler such as SeedVR2, taken back with `controller portrait`; (4) product details an image model drew wrong (stripes, overlays, logos, embossed text) can be restored from a real product photo with `transplant` - use when the user says 产品细节不对 / 条纹不对 / logo 字乱 / 还原产品.
 ---
 
 # Repair AI Image Quality
@@ -53,6 +53,21 @@ image-edit model re-render the fabric, then keeping only what it is good for. Dr
    * > 50 % redrawn -> also `rewash`: generate that image again (new seed) and rerun;
    * no wash supplied -> local filter.
 4. Report from `repaired/controller_report.json`; show the `_fixed_compare.png` boards of every `review` item.
+
+## Portraits: AI skin (crackled fake texture, plastic skin)
+
+Painting pores onto the skin alone looks pasted (tested): hair, eyes and lips keep the AI look and the
+skin ends up crisper than the rest. A real-detail upscaler on the WHOLE image fixes it coherently.
+
+1. `run.sh controller plan IMAGES...` marks portraits (`portrait: true`, YuNet face detector).
+2. Upscale those images with SeedVR2 (Apache-2.0; Higgsfield `upscale_image`, ComfyUI, or local GPU).
+   Keep the original's stem or leading number in the output name, or put them in one folder.
+3. `run.sh controller portrait IMAGES... --upscaled DIR [--keep-size]` - back to the original size (or
+   keep the upscaler's), colour-matched to the original (upscalers shift colour a little), with a board
+   that zooms the face. Check identity on the board before delivering.
+
+The skill does not upscale by itself: it finds the portraits, takes the result back, fixes the colour and
+shows the check. SeedVR2 keeps pores modest; heavier "macro pore" looks are a re-render job, not this.
 
 ## Product details drawn wrong: transplant from the real product photo (EXPERIMENTAL, unstable)
 

@@ -7,6 +7,12 @@ Two steps, because the best repair needs an image-edit model this script cannot 
     (re-render each listed image with an image-edit model, e.g. Nano Banana 2,
      same aspect ratio and size; any image-edit tool works)
     controller.py run IMG [IMG ...] --washed DIR   -> repaired images + report
+    controller.py portrait IMG [IMG ...] --upscaled DIR [--keep-size]
+                                                   -> portraits: take back a real-detail upscale
+                                                      (SeedVR2 ...), colour-matched to the original
+
+`plan` also marks portraits (`portrait: true`): for AI skin (crackled fake texture or plastic skin) send
+them to a real-detail upscaler such as SeedVR2, then run `portrait`.
 
 Decision per image (`run`):
   no maze detected                -> left as is
@@ -28,6 +34,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import color_match as cm  # noqa: E402
 import gpt_demaze as gd  # noqa: E402
+import portrait as pt  # noqa: E402
 import retexture  # noqa: E402
 from common import comparison_board, load_image, luma, save_image, to_pil  # noqa: E402
 
@@ -137,6 +144,39 @@ def run_one(path, wash_path, out_dir, strength=60, model=None):
     return rec
 
 
+def run_portrait(path, up_path, out_dir, keep_size=False):
+    import cv2
+    orig, info = load_image(path)
+    up, up_info = load_image(up_path)
+    h, w = orig.shape[:2]
+    small = cv2.resize(up, (w, h), interpolation=cv2.INTER_AREA) if up.shape[:2] != (h, w) else up
+    r, views = cm.match(str(path), str(up_path), None, edit_image=(small, up_info), return_views=True)
+    fixed = (views or {}).get("output")
+    fixed = np.asarray(fixed, np.float32) if fixed is not None else small
+    if keep_size and up.shape[:2] != (h, w):
+        # carry the colour correction over to the full-size upscale
+        gain = cv2.resize(cv2.GaussianBlur(fixed, (0, 0), 3) - cv2.GaussianBlur(small, (0, 0), 3), (up.shape[1], up.shape[0]))
+        fixed = np.clip(up + gain, 0, 1)
+    ext = path.suffix if path.suffix.lower() in (".png", ".jpg", ".jpeg") else ".png"
+    out = out_dir / f"{path.stem}_portrait{ext}"
+    save_image(out, fixed, info)
+    pi = pt.portrait_info(orig)
+    crops = []
+    if pi["face_box"]:
+        x, y, bw, bh = pi["face_box"]
+        s = int(max(bw, bh) * 0.6)
+        cx, cy = x + bw // 2, y + int(bh * 0.6)
+        crops = [(max(cx - s // 2, 0), max(cy - s // 2, 0), min(cx + s // 2, w), min(cy + s // 2, h))]
+    ca, cb = r.get("after") or {}, r.get("before") or {}
+    board = out_dir / f"{path.stem}_portrait_compare.png"
+    disp = cv2.resize(fixed, (w, h), interpolation=cv2.INTER_AREA) if fixed.shape[:2] != (h, w) else fixed
+    comparison_board(board, path.name, f"放大后校色 ΔE {cb.get('deltaE00_mean')} → {ca.get('deltaE00_mean')}，请看脸部局部确认人物没变",
+                     [("原图", to_pil(orig)), ("放大+校色", to_pil(disp))], crops=crops, crop_zoom=2)
+    return {"input": str(path), "upscaled": str(up_path), "output": str(out), "comparison": str(board),
+            "faces": pi["faces"], "color": {"before": cb.get("deltaE00_mean"), "after": ca.get("deltaE00_mean")},
+            "size": list(fixed.shape[:2][::-1])}
+
+
 def collect(paths):
     out = []
     for p in map(Path, paths):
@@ -160,19 +200,49 @@ def main():
     r.add_argument("--out-dir")
     r.add_argument("--strength", type=float, default=60)
     r.add_argument("--model")
+    q = sub.add_parser("portrait", help="take back real-detail upscales of portraits (SeedVR2 ...)")
+    q.add_argument("images", nargs="+")
+    q.add_argument("--upscaled", nargs="+", required=True, help="upscaled files or folders (matched by name or leading number)")
+    q.add_argument("--out-dir")
+    q.add_argument("--keep-size", action="store_true", help="keep the upscaler's resolution (default: back to the original size)")
     a = ap.parse_args()
     imgs = collect(a.images)
     if a.cmd == "plan":
         rows = []
         for f in imgs:
             _, _, det = detect(f, a.model)
-            rows.append({"input": str(f), **det, "wash_prompt": WASH_PROMPT if det["needs_repair"] else None})
-            print(f"{'需要洗' if det['needs_repair'] else '跳过  '}  {f.name}  迷宫纹 {det['maze_score']}  {det['reason']}", flush=True)
+            rgb, _ = load_image(f, max_side=2048)
+            pinfo = pt.portrait_info(rgb)
+            rows.append({"input": str(f), **det, "wash_prompt": WASH_PROMPT if det["needs_repair"] else None, **pinfo})
+            tag = "  人像→建议真实细节放大（SeedVR2）" if pinfo["portrait"] else ""
+            print(f"{'需要洗' if det['needs_repair'] else '跳过  '}  {f.name}  迷宫纹 {det['maze_score']}  {det['reason']}{tag}", flush=True)
         out = Path(a.out) if a.out else imgs[0].parent / "repaired" / "plan.json"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(json.dumps({"wash_prompt": WASH_PROMPT, "images": rows}, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"\n{sum(r['needs_repair'] for r in rows)} / {len(rows)} 张需要处理 → {out}")
         print("下一步：用图像编辑模型（如 Nano Banana 2，同比例同尺寸）按 wash_prompt 重绘这些图，然后 run --washed <输出文件夹>")
+        n_p = sum(r["portrait"] for r in rows)
+        if n_p:
+            print(f"人像 {n_p} 张：皮肤假/塑料感时，用 SeedVR2 等真实细节放大整张图，然后 portrait --upscaled <输出文件夹>")
+        return
+    if a.cmd == "portrait":
+        ups = collect(a.upscaled)
+        recs = []
+        for f in imgs:
+            if any(f.resolve() == u.resolve() for u in ups):
+                continue
+            c = find_washes(f, ups)
+            if not c:
+                print(f"跳过  {f.name}：没找到对应的放大图", flush=True)
+                continue
+            out_dir = Path(a.out_dir) if a.out_dir else f.parent / "repaired"
+            out_dir.mkdir(parents=True, exist_ok=True)
+            rec = run_portrait(f, c[0], out_dir, a.keep_size)
+            recs.append(rec)
+            print(f"人像  {f.name}  校色 ΔE {rec['color']['before']} → {rec['color']['after']}  → {Path(rec['output']).name}", flush=True)
+        if recs:
+            out_dir = Path(a.out_dir) if a.out_dir else imgs[0].parent / "repaired"
+            (out_dir / "portrait_report.json").write_text(json.dumps(recs, ensure_ascii=False, indent=2), encoding="utf-8")
         return
     washed = collect(a.washed) if a.washed else []
     recs = []
