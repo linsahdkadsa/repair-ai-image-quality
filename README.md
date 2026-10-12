@@ -85,7 +85,20 @@ Windows 把 `run.sh` 换成 `powershell -ExecutionPolicy Bypass -File run.ps1`�
 
 ## 增强流程（需要图像编辑模型配合）
 
-**迷宫纹「洗图 + 融合」**：本地滤波去得干净但绒面会偏平。更好的做法是让图像编辑模型（如 Nano Banana 2）把面料重画一遍，再由控制器只取它的细纹理、颜色和结构仍用原图：
+**迷宫纹「洗图 + 融合」**：本地滤波去得干净但绒面会偏平。更好的做法是让图像编辑模型（如 Nano Banana 2）把面料重画一遍，再由控制器只取它的细纹理、颜色和结构仍用原图。
+
+**一条命令搞定（skill 自己调用 banana）：**
+
+```bash
+export GEMINI_API_KEY=你的key        # 在 aistudio.google.com/apikey 申请，按 Google 价格计费
+$S/run.sh controller auto 图1.png 图2.png
+```
+
+也可以用 fal.ai（`export FAL_KEY=...`），或者接你自己在用的任何生图工具：`--wash-cmd '你的命令 {input} {prompt} {output}'`。在 Claude Code / Codex 里直接说「帮我去迷宫纹」，没配 key 的话它会问你要，或者走下面的手动方式。
+
+**没有 API 也能用：** 什么都没配置时，`auto` 会生成一个「手动洗图」文件夹：里面有要洗的图、提示词和《怎么洗.md》。照着在 Gemini 网页（gemini.google.com 或 AI Studio）上传图、粘贴提示词，下载结果放进「洗好的放这里」，再跟 AI 说一句「洗好了」，它会接着融合、校验。
+
+分步做（auto 背后就是这几步）：
 
 ```bash
 $S/run.sh controller plan 图1.png 图2.png        # 找出要洗的图，生成提示词 repaired/plan.json
@@ -120,11 +133,11 @@ $S/run.sh controller portrait 图1.png 图2.png --upscaled 放大后的文件夹
 |---|---|---|
 | GPT 迷宫纹（本地滤波） | ✅ | |
 | banana 偏色校回底图 | ✅ | |
-| 迷宫纹「洗图 + 融合」 | 融合、校色、验收在本地 | 洗图那一步 |
+| 迷宫纹「洗图 + 融合」 | 融合、校色、验收在本地；没 API 时生成手动洗图文件夹 | 洗图那一步（GEMINI_API_KEY / FAL_KEY / 自己的工具，skill 会自己调用） |
 | 人像皮肤 | 找人像、缩回、校色、对比在本地 | 放大那一步（SeedVR2） |
 | 产品细节移植（实验性） | 对位、移植、检查、校色在本地 | 「均匀化」那一步 |
 
-Skill 本身不调用任何生图服务，也不需要 API Key。在 Claude Code / Codex 里，如果接了生图工具（MCP 或 API），代理会自动完成洗图那一步；没接的话，`plan` 会给出要处理的图和提示词，你在任何工具（Gemini、ChatGPT、其他聚合平台）里生成好放进文件夹，再执行 `run` / `finish` 即可。
+去迷宫纹（本地滤波）、校色、验收都不需要 API Key。洗图这一步：配了 `GEMINI_API_KEY` / `FAL_KEY` 或 `--wash-cmd`，`controller auto` 会自己调用 banana；Claude Code / Codex 里接了生图工具（MCP）的，代理也可以自己洗；都没有的话，`auto` 会生成手动洗图文件夹，在 Gemini 网页洗好放回来就能继续。
 
 ## 原理简述
 
@@ -141,7 +154,7 @@ Skill 本身不调用任何生图服务，也不需要 API Key。在 Claude Code
 ## 自检
 
 ```bash
-$S/run.sh selftest   # 合成数据回归测试（16 项，含「用新模型去迷宫纹」「模型跑不了时退回频域方法」「多色偏移修完不偏绿」「白模原图跳过」「产品部件移植位置准确、被挪动的候选会被拒」），约 30 秒，全部 PASS 才算正常
+$S/run.sh selftest   # 合成数据回归测试（18 项，含「用新模型去迷宫纹」「模型跑不了时退回频域方法」「多色偏移修完不偏绿」「白模原图跳过」「产品部件移植位置准确、被挪动的候选会被拒」「洗图接口能解析 Gemini/fal 返回、没 API 时生成手动文件夹」），约 30 秒，全部 PASS 才算正常
 ```
 
 ## License

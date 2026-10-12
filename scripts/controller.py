@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 """GPT maze controller: decide, per image, how to get rid of the maze, run it, check it.
 
-Two steps, because the best repair needs an image-edit model this script cannot call:
+One command when an image-edit API is configured (GEMINI_API_KEY, FAL_KEY or --wash-cmd):
+
+    controller.py auto IMG [IMG ...]               -> detect, wash with Nano Banana, fuse, check
+                                                      (no API configured: writes a hand-wash folder
+                                                       with the images, the prompt and instructions)
+
+Or in two steps:
 
     controller.py plan IMG [IMG ...]               -> plan.json: which images need a wash, and the prompt
     (re-render each listed image with an image-edit model, e.g. Nano Banana 2,
@@ -36,6 +42,7 @@ import color_match as cm  # noqa: E402
 import gpt_demaze as gd  # noqa: E402
 import portrait as pt  # noqa: E402
 import retexture  # noqa: E402
+import wash as washer  # noqa: E402
 from common import comparison_board, load_image, luma, save_image, to_pil  # noqa: E402
 
 WASH_PROMPT = ("Keep this image exactly the same: same composition, framing, product shape, buttons, labels, "
@@ -200,6 +207,15 @@ def main():
     r.add_argument("--out-dir")
     r.add_argument("--strength", type=float, default=60)
     r.add_argument("--model")
+    u = sub.add_parser("auto", help="detect, wash with an image-edit API (Nano Banana), fuse and check in one go")
+    u.add_argument("images", nargs="+")
+    u.add_argument("--out-dir")
+    u.add_argument("--provider", choices=["gemini", "fal", "cmd", "manual"], help="default: the first one configured")
+    u.add_argument("--wash-model", help="model id, e.g. gemini-3-pro-image or fal-ai/nano-banana/edit")
+    u.add_argument("--wash-cmd", help="your own tool: 'mytool --in {input} --prompt-file {prompt} --out {output}'")
+    u.add_argument("--size", default="2K")
+    u.add_argument("--strength", type=float, default=60)
+    u.add_argument("--model")
     q = sub.add_parser("portrait", help="take back real-detail upscales of portraits (SeedVR2 ...)")
     q.add_argument("images", nargs="+")
     q.add_argument("--upscaled", nargs="+", required=True, help="upscaled files or folders (matched by name or leading number)")
@@ -224,6 +240,34 @@ def main():
         n_p = sum(r["portrait"] for r in rows)
         if n_p:
             print(f"人像 {n_p} 张：皮肤假/塑料感时，用 SeedVR2 等真实细节放大整张图，然后 portrait --upscaled <输出文件夹>")
+        return
+    if a.cmd == "auto":
+        out_dir = Path(a.out_dir) if a.out_dir else imgs[0].parent / "repaired"
+        need = []
+        for f in imgs:
+            _, _, det = detect(f, a.model)
+            print(f"{'需要洗' if det['needs_repair'] else '跳过  '}  {f.name}  迷宫纹 {det['maze_score']}", flush=True)
+            if det["needs_repair"]:
+                need.append((f, WASH_PROMPT))
+        if not need:
+            print("没有需要处理的图。")
+            return
+        prov, washed_files, manual_dir = washer.wash_all(need, out_dir / "washed", a.provider, a.wash_model,
+                                                          a.wash_cmd, a.size, log=lambda m: print(m, flush=True))
+        if manual_dir is not None:
+            print(f"\n没有配置洗图 API（GEMINI_API_KEY / FAL_KEY / --wash-cmd），已经准备好手动洗图文件夹：\n  {manual_dir.parent}"
+                  f"\n照「怎么洗.md」用 Gemini 网页洗好放进「洗好的放这里」，然后：\n  run.sh controller run {' '.join(str(f) for f, _ in need)} --washed \"{manual_dir}\"")
+            return
+        recs = []
+        for f, _ in need:
+            cands = find_washes(f, washed_files)
+            rec = run_one(f, cands or None, out_dir, a.strength, a.model)
+            rec["wash_provider"] = prov
+            recs.append(rec)
+            flag = "  ⚠ 请人工确认" if rec.get("review") else ""
+            print(f"{rec['method']:10} {f.name}  {rec['decision']}{flag}", flush=True)
+        (out_dir / "controller_report.json").write_text(json.dumps(recs, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"\n完成 {len(recs)} 张 → {out_dir}（对比图 *_fixed_compare.png）")
         return
     if a.cmd == "portrait":
         ups = collect(a.upscaled)

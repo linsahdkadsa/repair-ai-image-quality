@@ -325,6 +325,30 @@ def portrait_test():
     check("face detector loads, no face on a plain image", ok and info.get("portrait") is False, f"model={'ok' if ok else 'missing'} info={info}")
 
 
+def wash_test(tmp):
+    import base64, io, os
+    from PIL import Image as _I
+    import wash
+    buf = io.BytesIO(); _I.new("RGB", (64, 64), (200, 100, 50)).save(buf, "PNG"); b = base64.b64encode(buf.getvalue()).decode()
+    shapes = [{"outputs": [{"type": "image", "mime_type": "image/png", "data": b}]},
+              {"candidates": [{"content": {"parts": [{"inlineData": {"mimeType": "image/png", "data": b}}]}}]},
+              {"images": [{"url": "data:image/png;base64," + b}]}]
+    ok = True
+    for i, sh in enumerate(shapes):
+        out = Path(tmp) / f"w{i}.png"
+        f = wash._find_image(sh)
+        ok &= f is not None
+        if f: wash._save(f, out); ok &= out.exists()
+    check("wash: Gemini / generateContent / fal responses parsed", ok, f"{len(shapes)} response shapes")
+    old = {k: os.environ.pop(k, None) for k in ("GEMINI_API_KEY", "GOOGLE_API_KEY", "FAL_KEY")}
+    src = Path(tmp) / "w0.png"
+    prov, done, folder = wash.wash_all([(src, "test prompt")], Path(tmp) / "hand")
+    for k, v in old.items():
+        if v is not None: os.environ[k] = v
+    check("wash: no API -> hand-wash folder", prov == "manual" and folder is not None and (folder.parent / "怎么洗.md").exists()
+          and (folder.parent / "待洗" / "w0.png").exists(), f"provider={prov}")
+
+
 def main():
     with tempfile.TemporaryDirectory() as tmp:
         maze_test(tmp)
@@ -336,6 +360,7 @@ def main():
         grey_source_test(tmp)
         transplant_test(tmp)
         portrait_test()
+        wash_test(tmp)
     print("\nALL PASS" if not FAILS else f"\nFAILED: {', '.join(FAILS)}")
     sys.exit(1 if FAILS else 0)
 

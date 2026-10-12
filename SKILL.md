@@ -34,6 +34,19 @@ Outputs go to `<image folder>/repaired/` (`--out-dir` to change): `<name>_fixed.
 
 ## GPT maze: the controller (preferred when an image-edit tool is available)
 
+**One command:** `scripts/run.sh controller auto IMAGES...` detects the maze, sends the images that need it
+to Nano Banana, fuses, checks and writes the boards. It calls the model itself when one of these is set:
+`GEMINI_API_KEY` (Google, model `gemini-nano-banana-2.1`, `--wash-model` to change), `FAL_KEY` (fal.ai), or
+`--wash-cmd '<any tool> {input} {prompt} {output}'`. With none of them it writes a hand-wash folder
+(`怎么洗.md`, the images, the prompt) for the Gemini app / AI Studio, and prints the `run` command to finish.
+
+As an agent: if your session has its own image-edit tool (an MCP such as Higgsfield or an aggregator), you
+may skip the API and do the wash yourself with the steps below; otherwise use `auto`. If `auto` falls back to
+the hand-wash folder, tell the user plainly: "没有配置洗图 API，图和提示词放在 X，照 怎么洗.md 在 Gemini 网页
+洗好放回来，我再接着做", or offer to set `GEMINI_API_KEY` (the user pastes it themselves; never read key files).
+
+Manual steps (what `auto` does):
+
 The local filter removes the maze but leaves the surface smooth. The best result comes from letting an
 image-edit model re-render the fabric, then keeping only what it is good for. Drive it end to end:
 
