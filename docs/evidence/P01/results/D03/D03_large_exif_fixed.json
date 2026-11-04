@@ -1,0 +1,16 @@
+{
+  "input": "G:\\project\\RepairAiImage\\tests\\fixtures\\images\\D03_large_exif.jpg",
+  "source": null,
+  "steps": [
+    {
+      "route": "gpt-demaze",
+      "strength": 60,
+      "gpt_hint": false,
+      "maze_score": null,
+      "decision": "带相机 EXIF（RepairAiImage synthetic camera P01 fixture），按实拍照片跳过；确认是 GPT 图可加 --model gpt 或 --force",
+      "action": "no-op"
+    }
+  ],
+  "output": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\D03\\D03_large_exif_fixed.jpg",
+  "seconds": 0.35
+}

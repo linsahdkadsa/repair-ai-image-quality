@@ -1,0 +1,15 @@
+{
+  "allowedWarnings": [
+    {
+      "source": "vite",
+      "pattern": "Some chunks are larger than 500 kB after minification",
+      "reason": "P02 仅提供最小占位入口，尚未进入 P05 页面与路由拆分；P05 必须实施按路由分包并重新评估阈值。"
+    },
+    {
+      "source": "storybook",
+      "pattern": "No story files found",
+      "reason": "P02 只验证 Storybook 工具链可构建，组件 stories 属于 P05 前端公共基础交付。"
+    }
+  ],
+  "reviewByPhase": "P05"
+}

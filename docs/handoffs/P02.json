@@ -1,0 +1,254 @@
+{
+  "phase": "P02",
+  "status": "accepted_with_limitations",
+  "previousHandoff": "docs/handoffs/P01.json",
+  "date": "2026-11-04",
+  "sourceRevision": "uncommitted-bootstrap",
+  "standardHashes": {
+    "architecture": "F32DA7BBBEF8B6369A7C6839A4411AF3553FE35E72C81775FF288294BB631C6F",
+    "frontend": "BDCBCC26FE6F7E482E7C27A7111DFD1D73CBD3D20D6708462B8FDF67D9CA73E2"
+  },
+  "outputs": [
+    {
+      "path": "package.json",
+      "bytes": 1625,
+      "sha256": "F78840A452DAC390ADE5338C6516375EC89C80D0D9742495DB2CF0ECB3F37E6E"
+    },
+    {
+      "path": "package-lock.json",
+      "bytes": 234431,
+      "sha256": "BDB0727AD103B58F746AF3241E7055F529F8366C1288AD2DA0108090CDE4903D"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 262,
+      "sha256": "9DF6B7520B63177FB5C5CE7AE76F507FD4FC88C4966710E831232F54685E2A94"
+    },
+    {
+      "path": ".editorconfig",
+      "bytes": 180,
+      "sha256": "48BF56A6CD915C2528F22F05C6A709D296ABAAEF8664EC4BD641F134F4561F81"
+    },
+    {
+      "path": ".npmrc",
+      "bytes": 37,
+      "sha256": "3A951F66E7E0F3E2DD1832473A871357C4A507B51100636B73BCF6FF0DD78B6C"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "bytes": 707,
+      "sha256": "29A19DAA9AB0A4B6DCE773EADBA7E72CE00AD85F92E1BBAD2DBB1B996BEC276E"
+    },
+    {
+      "path": "backend/pyproject.toml",
+      "bytes": 438,
+      "sha256": "FC7CE2E385CBA2592BD26AEF7D703E000269BD8541A9F4C02C4D7D4F9C2A846C"
+    },
+    {
+      "path": "backend/requirements.lock",
+      "bytes": 51352,
+      "sha256": "97E355C91D0A57C7AC31B16098CA13FF15B60B992BFB74AB4483F18EF3FD8181"
+    },
+    {
+      "path": "backend/openapi.json",
+      "bytes": 124,
+      "sha256": "1A51A8F9AADB1363A9D8C829D4ED20170C869C5EBF2B4B110543E0BD47BE2C57"
+    },
+    {
+      "path": "backend/src/api/app.py",
+      "bytes": 415,
+      "sha256": "D9165B5076F5E1E9BC9C1876B20E9BBD51B4AE6018436ABD8BB75ED97D30C9EE"
+    },
+    {
+      "path": "backend/tests/test_health.py",
+      "bytes": 292,
+      "sha256": "07ABD0D4413043C50188EC81E9FFEC4DA0D36E59FEB8D34FCF4E4E4BBF53C94E"
+    },
+    {
+      "path": "frontend/package.json",
+      "bytes": 1054,
+      "sha256": "D8ACB07C8F4999DF4CCD907EE0B8706B960C1D8A8BD93B745107A9B23EAD51E5"
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "bytes": 590,
+      "sha256": "9CAE9D9CED1F7FAC496CDC22E877D95854DCFC6BEA5C9DC9ADA71E2D81781F3A"
+    },
+    {
+      "path": "frontend/vite.config.ts",
+      "bytes": 262,
+      "sha256": "D21EA402447C5ADE0CC8D6DE0CC6EC9D9664F6BAB57657FBE6D2DC230E5C93B5"
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "bytes": 230,
+      "sha256": "98406706C7F211CA8AA016540614D594AA09059B541643A78C8158D27F8BF998"
+    },
+    {
+      "path": "frontend/src/shared/app/app.tsx",
+      "bytes": 816,
+      "sha256": "593975538E72BB96B8C58BCC48A4CA8E7C0A669EF435B6AB9EA1212D66D8E56B"
+    },
+    {
+      "path": "frontend/src/shared/app/app.test.tsx",
+      "bytes": 436,
+      "sha256": "CAA9A08156AFF1A3E2AFBA7C3BF867A1384030E99BF52E23F8E4F13D738C017A"
+    },
+    {
+      "path": "frontend/src/shared/api/generated.ts",
+      "bytes": 452,
+      "sha256": "6D3D05F2B1B1C3FBF08252E3531C48F43E251E69CB0030FCA8A42BCAA03F2D58"
+    },
+    {
+      "path": "tools/run-python.mjs",
+      "bytes": 973,
+      "sha256": "27380E56ABB939369EB98D54AFB83C2AA5ABD2AB6391BD0F30CA51A5B8C2839F"
+    },
+    {
+      "path": "tools/dev.mjs",
+      "bytes": 2957,
+      "sha256": "166EDBFFC5E8DF4E1C06F21D0A082FD8E7819F14A5A9E263CC5E6A4C94FC9494"
+    },
+    {
+      "path": "tools/dev.test.mjs",
+      "bytes": 1772,
+      "sha256": "86984353DEC0F3CEC1C886EF34580C9055E0B5A466CBBC8120D6C9D60EDA66DC"
+    },
+    {
+      "path": "tools/check-boundaries.mjs",
+      "bytes": 1809,
+      "sha256": "6E185CD2D47995C74440DD44BE0A52DFCB6D3D2794D3463374B24E617B23341B"
+    },
+    {
+      "path": "tools/check-boundaries.test.mjs",
+      "bytes": 920,
+      "sha256": "C5C80A0D54CC6DDBE07C3B839B384394A4A81F9DB3F5AF691919BE0BC9FF58A4"
+    },
+    {
+      "path": "tools/check-handoff.mjs",
+      "bytes": 3558,
+      "sha256": "9D7C175BC458FFB7732868DD439C7EDB2C5AED81A0D65EE7F5A074D71CEBFCAA"
+    },
+    {
+      "path": "tools/check-handoff.test.mjs",
+      "bytes": 2820,
+      "sha256": "F69BD3DF3A0A135DF366C7388D1633267733F9EA7DB51EA382541E5BB357E2B7"
+    },
+    {
+      "path": "tools/check-dependencies.mjs",
+      "bytes": 2663,
+      "sha256": "BD8C740218317B9704CE98D9FB3431ECF0918C703E0A012273BD69B800F13DD4"
+    },
+    {
+      "path": "tools/check-dependencies.test.mjs",
+      "bytes": 994,
+      "sha256": "DA84DF6F908D848617482D861AA05B4BEA195381DA03939077CACE7F804990DF"
+    },
+    {
+      "path": "tools/check-api.mjs",
+      "bytes": 1411,
+      "sha256": "DFBDEE41A5E83B42325D77657BD628AC35BE3B013185D2D10BF02EC32BF94682"
+    },
+    {
+      "path": "tools/not-ready.mjs",
+      "bytes": 216,
+      "sha256": "ECDF183CFF2293BB3C106A2675FFB842721D8C5B8B6C200939E515BCA9E1DE98"
+    },
+    {
+      "path": "tools/not-ready.test.mjs",
+      "bytes": 489,
+      "sha256": "284ADE37C7A9FEE5ECF13C44A2A99EDD11F9643B1E7F6909347ADBE9C7006D46"
+    },
+    {
+      "path": "docs/TECH_STACK.md",
+      "bytes": 2180,
+      "sha256": "82D5363221DCAE09D16B2A58E659393D06AEFCC807CB7786C1F585F4F5404B66"
+    },
+    {
+      "path": "docs/evidence/P02/dependency-audit-allowlist.json",
+      "bytes": 360,
+      "sha256": "45DE06114DBF4957442706420D6787A803807C1E6BF3AF0112F1A5A8C188DF01"
+    },
+    {
+      "path": "docs/evidence/P02/build-warning-allowlist.json",
+      "bytes": 516,
+      "sha256": "E657270ADE4C6081762E6932152266F3F10262217A0A1C29ACAE7F15D43F4F01"
+    },
+    {
+      "path": "docs/handoffs/P02.md",
+      "bytes": 2682,
+      "sha256": "EA2624F6D68DDF339153C52D45D6561D665B6891A58E425050B78AF126570B5B"
+    }
+  ],
+  "verification": [
+    {
+      "command": "npx --yes npm@11.6.2 ci",
+      "exitCode": 0,
+      "report": "docs/evidence/P02/npm-ci.txt"
+    },
+    {
+      "command": "backend/.venv/Scripts/python.exe -m pip install --require-hashes -r backend/requirements.lock",
+      "exitCode": 0,
+      "report": "docs/evidence/P02/python-lock-install.txt"
+    },
+    {
+      "command": "npm run check:dependencies",
+      "exitCode": 0,
+      "report": "docs/evidence/P02/dependency-check.txt"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "report": "docs/evidence/P02/tests.txt"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "report": "docs/evidence/P02/build.txt"
+    },
+    {
+      "command": "npm run build:storybook",
+      "exitCode": 0,
+      "report": "docs/evidence/P02/storybook-build.txt"
+    },
+    {
+      "command": "node tools/dev.mjs + HTTP/port/process smoke",
+      "exitCode": 0,
+      "report": "docs/evidence/P02/dev-smoke.txt"
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "report": "docs/evidence/P02/check.txt"
+    },
+    {
+      "command": "npm run check:handoff -- P02",
+      "exitCode": 0,
+      "report": "docs/evidence/P02/handoff-check.txt"
+    },
+    {
+      "command": "npm install",
+      "exitCode": 0,
+      "report": "docs/evidence/P02/npm-install.txt"
+    }
+  ],
+  "capabilities": {
+    "workspace": "verified",
+    "developmentLauncher": "verified",
+    "healthAndReadiness": "verified",
+    "architectureGate": "verified",
+    "handoffGate": "verified",
+    "openapiTypeGeneration": "verified",
+    "businessE2E": "not_implemented",
+    "visualRegression": "not_implemented",
+    "deployment": "not_verified",
+    "gptMazeModelDistribution": "blocked_pending_rights_confirmation"
+  },
+  "limitations": [
+    "P02 不含业务任务、认证、上传、算法、E2E、视觉或部署验收。",
+    "两个 moderate npm advisory 暂时 allowlist，P05 必须复评。",
+    "前端大块与无 Storybook stories 告警在 P05 处理。",
+    "GPT Maze ONNX 权重再分发授权仍待确认。"
+  ],
+  "nextPhase": "P03"
+}

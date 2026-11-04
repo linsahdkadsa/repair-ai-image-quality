@@ -1,0 +1,6 @@
+
+> repair-ai-image@0.1.0 test:backend
+> node tools/run-python.mjs -m pytest tests src/core/test_config.py src/repo/test_artifact_repository.py src/service/test_upload_service.py tests/test_security_contract.py tests/test_upload_contract.py -q
+
+.........................................                                [100%]
+41 passed in 17.46s

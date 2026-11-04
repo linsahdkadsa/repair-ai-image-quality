@@ -1,0 +1,12 @@
+runtime/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+repaired/
+output/
+outputs/
+training/data/
+*.pt

@@ -1,0 +1,7 @@
+
+> repair-ai-image@0.1.0 api:generate
+> node tools/run-python.mjs -m api.export_openapi && openapi-typescript backend/openapi.json -o frontend/src/shared/api/generated.ts
+
+C:\Users\leiyinfeng\.codex\worktrees\p03-auth-private-files\RepairAiImage\backend\openapi.json
+✨ openapi-typescript 7.13.0
+🚀 backend/openapi.json → frontend/src/shared/api/generated.ts [86.2ms]

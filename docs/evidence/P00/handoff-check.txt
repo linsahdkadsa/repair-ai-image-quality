@@ -1,0 +1,19 @@
+P00 handoff checks
+Date: 2026-11-04
+
+Command: Get-FileHash -Algorithm SHA256 -LiteralPath 'G:/project/RepairAiImage/docs/standards/通用架构设定.md', 'G:/project/RepairAiImage/docs/standards/通用前端设定.md'
+Exit code: 0
+Result: both project copies match plan §1.1 SHA-256 baselines.
+
+Command: Get-ChildItem -LiteralPath 'G:/project/RepairAiImage/docs' -File | Select-Object Name,Length
+Exit code: 0
+Result: root documentation artifacts present; nested evidence, handoff, and ADR are separately indexed below.
+
+Contract coverage check (PowerShell):
+Required API paths checked: 17
+Missing API paths: 0
+Unique requirement IDs in SPEC: 27
+Four modules and seven modes: present
+Result: PASS
+
+No package.json or source/test project exists; npm test/build were not applicable to this documentation-only phase. No application runtime, real algorithm, identity integration, or target-device deployment was tested.

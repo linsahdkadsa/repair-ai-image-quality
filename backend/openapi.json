@@ -1,0 +1,382 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Repair AI Image API",
+    "version": "0.1.0"
+  },
+  "paths": {
+    "/api/v1/system/status": {
+      "get": {
+        "tags": [
+          "system"
+        ],
+        "summary": "System Status",
+        "operationId": "system_status_api_v1_system_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemStatusEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/session": {
+      "get": {
+        "tags": [
+          "session"
+        ],
+        "summary": "Session",
+        "operationId": "session_api_v1_session_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SessionEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/session/reload-credentials": {
+      "post": {
+        "tags": [
+          "session"
+        ],
+        "summary": "Reload Credentials",
+        "operationId": "reload_credentials_api_v1_session_reload_credentials_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ReloadEnvelope"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/uploads": {
+      "post": {
+        "tags": [
+          "uploads"
+        ],
+        "summary": "Create Upload",
+        "operationId": "create_upload_api_v1_uploads_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_upload_api_v1_uploads_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UploadEnvelope"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/uploads/{upload_id}": {
+      "delete": {
+        "tags": [
+          "uploads"
+        ],
+        "summary": "Delete Upload",
+        "operationId": "delete_upload_api_v1_uploads__upload_id__delete",
+        "parameters": [
+          {
+            "name": "upload_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Upload Id"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Body_create_upload_api_v1_uploads_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "File"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_create_upload_api_v1_uploads_post"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "LoggingDiagnosticsData": {
+        "properties": {
+          "writeFailures": {
+            "type": "integer",
+            "title": "Writefailures"
+          },
+          "droppedRecords": {
+            "type": "integer",
+            "title": "Droppedrecords"
+          }
+        },
+        "type": "object",
+        "required": [
+          "writeFailures",
+          "droppedRecords"
+        ],
+        "title": "LoggingDiagnosticsData"
+      },
+      "ReloadData": {
+        "properties": {
+          "reloaded": {
+            "type": "boolean",
+            "title": "Reloaded"
+          }
+        },
+        "type": "object",
+        "required": [
+          "reloaded"
+        ],
+        "title": "ReloadData"
+      },
+      "ReloadEnvelope": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/ReloadData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "ReloadEnvelope"
+      },
+      "SessionData": {
+        "properties": {
+          "username": {
+            "type": "string",
+            "title": "Username"
+          },
+          "role": {
+            "type": "string",
+            "title": "Role"
+          },
+          "authMethod": {
+            "type": "string",
+            "title": "Authmethod"
+          }
+        },
+        "type": "object",
+        "required": [
+          "username",
+          "role",
+          "authMethod"
+        ],
+        "title": "SessionData"
+      },
+      "SessionEnvelope": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SessionData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "SessionEnvelope"
+      },
+      "SystemStatusData": {
+        "properties": {
+          "logging": {
+            "$ref": "#/components/schemas/LoggingDiagnosticsData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "logging"
+        ],
+        "title": "SystemStatusData"
+      },
+      "SystemStatusEnvelope": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/SystemStatusData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "SystemStatusEnvelope"
+      },
+      "UploadData": {
+        "properties": {
+          "uploadId": {
+            "type": "string",
+            "title": "Uploadid"
+          },
+          "width": {
+            "type": "integer",
+            "title": "Width"
+          },
+          "height": {
+            "type": "integer",
+            "title": "Height"
+          },
+          "format": {
+            "type": "string",
+            "title": "Format"
+          },
+          "sizeBytes": {
+            "type": "integer",
+            "title": "Sizebytes"
+          },
+          "sha256": {
+            "type": "string",
+            "title": "Sha256"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Expiresat"
+          },
+          "originalName": {
+            "type": "string",
+            "title": "Originalname"
+          }
+        },
+        "type": "object",
+        "required": [
+          "uploadId",
+          "width",
+          "height",
+          "format",
+          "sizeBytes",
+          "sha256",
+          "expiresAt",
+          "originalName"
+        ],
+        "title": "UploadData"
+      },
+      "UploadEnvelope": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/UploadData"
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "UploadEnvelope"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

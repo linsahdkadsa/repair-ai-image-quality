@@ -1,0 +1,33 @@
+{
+  "input": "G:\\project\\RepairAiImage\\tests\\fixtures\\images\\D01_mazey.png",
+  "source": null,
+  "steps": [
+    {
+      "route": "gpt-demaze",
+      "strength": 60,
+      "gpt_hint": true,
+      "maze_score": 0.9595478881618085,
+      "maze_area_fraction": 0.8331611570247934,
+      "decision": "GPT 图且检测到迷宫纹",
+      "grid": {
+        "fold_z_before": {
+          "2": 0.5,
+          "4": 0.5,
+          "8": 1.4
+        },
+        "phase_consistency": 0.688,
+        "applied": false
+      },
+      "method": "unet",
+      "presence_fraction": 1.0,
+      "action": "demaze",
+      "maze_bump_before": 33.51,
+      "maze_bump_after": 1.77,
+      "edge_preservation": 0.9874,
+      "luma_mae_255": 8.093
+    }
+  ],
+  "output": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\D01\\D01_mazey_fixed.png",
+  "comparison": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\D01\\D01_mazey_fixed_compare.png",
+  "seconds": 1.51
+}

@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.22.2
+          cache: npm
+      - run: npm install --global npm@11.6.2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: 3.12.10
+      - uses: astral-sh/setup-uv@v6
+      - run: npm ci
+      - run: uv venv backend/.venv --python 3.12.10
+      - run: uv pip sync --python backend/.venv/Scripts/python.exe backend/requirements.lock
+      - run: npm run check
+      - run: npm test
+      - run: npm run build
+      - run: npm run build:storybook

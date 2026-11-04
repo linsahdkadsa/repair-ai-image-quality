@@ -1,0 +1,8 @@
+{
+  "allowedAdvisories": [
+    "GHSA-3g3m-2fjr-6pw4",
+    "GHSA-g3hv-75wg-m249"
+  ],
+  "reviewByPhase": "P05",
+  "reason": "仅为当前开发工具链的 glob/minimatch 中危传递依赖；高危和严重级别仍由 npm audit 阻断。此阶段不执行不可信仓库脚本，P05 必须重新评估并移除或更新受影响依赖后更新此清单。"
+}

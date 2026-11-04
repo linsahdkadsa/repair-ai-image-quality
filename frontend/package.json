@@ -1,0 +1,41 @@
+{
+  "name": "@repair-ai-image/frontend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest",
+    "check": "tsc --noEmit && eslint src --max-warnings 0",
+    "build:storybook": "storybook build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "5.1.0",
+    "antd": "5.29.3",
+    "axios": "1.21.0",
+    "dayjs": "1.11.19",
+    "echarts": "6.1.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router-dom": "7.18.5",
+    "swr": "2.3.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.1",
+    "@storybook/react-vite": "10.6.5",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.0",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "eslint": "9.39.1",
+    "eslint-plugin-react-hooks": "7.0.1",
+    "globals": "16.5.0",
+    "jsdom": "27.2.0",
+    "storybook": "10.6.5",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.48.0",
+    "vite": "7.3.7",
+    "vitest": "4.1.12"
+  }
+}

@@ -1,0 +1,57 @@
+
+> repair-ai-image@0.1.0 build:storybook
+> npm --workspace frontend run build:storybook
+
+
+> @repair-ai-image/frontend@0.1.0 build:storybook
+> storybook build
+
+
+T  Building storybook v10.6.5
+|
+o  Cleaning outputDir: storybook-static
+|
+o  Loading presets
+|
+o  Building manager..
+|
+•  Building open services..
+|
+•  Building preview..
+|
+!  No story files found for the specified pattern:
+|  src\**\*.stories.@(ts|tsx)
+|  Vite vite v7.3.7 building client environment for production...
+|  Vite transforming...
+|  Vite ✓ 52 modules transformed.
+|  Vite rendering chunks...
+|  Vite computing gzip size...
+|  Vite storybook-static/iframe.html                           18.75 kB │
+|  gzip:   5.23 kB
+|  Vite storybook-static/assets/preload-helper-PPVm8Dsz.js      1.23 kB │
+|  gzip:   0.71 kB
+|  Vite storybook-static/vite-inject-mocker-entry.js           28.11 kB │
+|  gzip:   9.82 kB
+|  Vite storybook-static/assets/react-18-CHpmaiAb.js          213.72 kB │
+|  gzip:  66.50 kB
+|  Vite storybook-static/assets/iframe-ByKt4HcY.js          1,134.03 kB │
+|  gzip: 323.62 kB
+|
+!  Vite
+|  (!) Some chunks are larger than 500 kB after minification. Consider:
+|  - Using dynamic import() to code-split the application
+|  - Use build.rollupOptions.output.manualChunks to improve chunking:
+|  ]8;;https://rollupjs.org/configuration-options/#output-manualchunkshttps://rollupjs.org/configuration-options/#output-manualchunks]8;;
+|  - Adjust chunk size limit for this warning via
+|  build.chunkSizeWarningLimit.
+|  Vite ✓ built in 8.67s
+|
+•  Storybook collects completely anonymous usage telemetry. We use it to
+|  shape Storybook's roadmap and prioritize features. You can learn more,
+|  including how to opt out, at ]8;;https://storybook.js.org/telemetryhttps://storybook.js.org/telemetry]8;;
+|
+o  Output directory: G:/project/RepairAiImage/frontend/storybook-static
+|
+—  Storybook build completed successfully
+
+exitCode=0

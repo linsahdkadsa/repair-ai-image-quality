@@ -1,0 +1,8 @@
+P02 environment verification
+date=2026-11-04T12:52:52.1378907+08:00
+node=v22.22.2
+npm-default=11.6.2
+python=Python 3.12.10
+uv=uv 0.11.11 (ed7b06001 2026-05-06 x86_64-pc-windows-msvc)
+git=git version 2.54.0.windows.1
+repository=independent empty Git repository; no commit created

@@ -1,0 +1,26 @@
+{
+  "route": "banana-color",
+  "source": "G:\\project\\RepairAiImage\\tests\\fixtures\\images\\C02_grey_source.png",
+  "edit": "G:\\project\\RepairAiImage\\tests\\fixtures\\images\\C02_grey_edit.png",
+  "aspect_mismatch": 0.0,
+  "registration": {
+    "kind": "identity",
+    "score": 0.0,
+    "shift_px_analysis": [
+      0.0,
+      0.0
+    ],
+    "scale": 1.0
+  },
+  "unchanged_fraction": 0.0,
+  "unchanged_rerendered_fraction": 0.0,
+  "before": {
+    "deltaE00_mean": null,
+    "deltaE00_p90": null,
+    "lab_shift_edit_minus_source": null
+  },
+  "unchanged_textured_fraction": 0.0,
+  "action": "no-op",
+  "reason": "可对照的未改动区域太少（0%）或对齐失败（score=0.00）：改图与原图构图差异太大，无法可靠估计偏色",
+  "output": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\C02\\C02_fixed.png"
+}

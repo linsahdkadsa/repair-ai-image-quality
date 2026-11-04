@@ -1,0 +1,28 @@
+[project]
+name = "repair-ai-image-backend"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi==0.162.0",
+  "pillow==11.3.0",
+  "python-multipart==0.0.20",
+  "uvicorn[standard]==0.54.0",
+]
+
+[dependency-groups]
+dev = [
+  "httpx2==2.16.0",
+  "pytest==9.2.0",
+  "ruff==0.14.8",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "src"]
+addopts = "-ra -W error --basetemp=.pytest-tmp"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

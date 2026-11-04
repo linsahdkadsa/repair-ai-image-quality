@@ -1,0 +1,9 @@
+.shell {
+  min-height: 100vh;
+  background: #f5f7fa;
+}
+
+.content {
+  width: min(100% - 48px, 960px);
+  margin: 48px auto;
+}

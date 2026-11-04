@@ -1,0 +1,6 @@
+
+> repair-ai-image@0.1.0 check:handoff
+> node tools/check-handoff.mjs P02
+
+P02 交接文件及其前置产物校验通过
+exitCode=0

@@ -1,0 +1,6 @@
+Code license: vendor/repair-ai-image-quality/LICENSE is MIT.
+README license statement: MIT.
+Training provenance: training/README.md says gpt_maze_unet.onnx was trained from the maintainer's own GPT Image 2.5 renders and image library; this is provenance, not an explicit redistribution license for the weight or every training source.
+YuNet model recheck: network access was restored on 2026-11-04. The local file bytes match OpenCV Zoo's face_detection_yunet_2023mar.onnx exactly (232589 bytes, SHA-256 8F2383E4DD3CFBB4553EA8718107FC0423210DC964F9F4280604804ED2552FA4). The OpenCV Zoo model directory supplies a MIT license and identifies the YuNet source; this resolves the YuNet source/license evidence, subject to preserving the notice in any distribution.
+Decision: code and fixture generator may be reviewed under the repository MIT notice; YuNet has a verified upstream source/license match. GPT maze model distribution remains pending rights confirmation because the fixed repository only gives training provenance, not an independent weight/training-data redistribution grant. P02/P12 must either obtain written confirmation for that model or ship with GPT-model-backed capabilities disabled and no unconfirmed model bytes in the release package.
+No secrets or credentials were written to this review.

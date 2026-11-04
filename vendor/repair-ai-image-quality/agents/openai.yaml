@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 图修复：GPT 迷宫纹 + banana 偏色"
+  short_description: "去掉 GPT image 的迷宫/蚯蚓纹噪点；把 banana 改图的洋红偏色校回原图；用产品实拍图修正画错的产品细节"
+  default_prompt: "Use $repair-ai-image-quality: remove GPT-image maze noise from these images, and if they are nano-banana edits, match their colours back to the original base image (anchor to the very first image, not the previous round)."

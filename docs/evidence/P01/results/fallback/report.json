@@ -1,0 +1,29 @@
+{
+  "route": "gpt-demaze",
+  "strength": 60,
+  "gpt_hint": true,
+  "maze_score": 0.9595478881618085,
+  "maze_area_fraction": 0.8331611570247934,
+  "profile_source": "image+prior",
+  "over_subtraction": 2.0,
+  "gain_floor": 0.15,
+  "decision": "GPT 图且检测到迷宫纹",
+  "grid": {
+    "fold_z_before": {
+      "2": 0.5,
+      "4": 0.5,
+      "8": 1.4
+    },
+    "phase_consistency": 0.688,
+    "applied": false
+  },
+  "method": "spectral",
+  "action": "demaze",
+  "maze_bump_before": 33.51,
+  "maze_bump_after": 2.12,
+  "edge_preservation": 0.9946,
+  "luma_mae_255": 8.561,
+  "source": "G:\\project\\RepairAiImage\\tests\\fixtures\\images\\D01_mazey.png",
+  "output": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\fallback\\D01_spectral.png",
+  "seconds": 0.37
+}
