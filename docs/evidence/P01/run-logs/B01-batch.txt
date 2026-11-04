@@ -1,0 +1,8 @@
+COMMAND=C:\Program Files\Python312\python.exe 
+Python 3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+EXIT_CODE=0
+START=2026-11-04T09:49:44.9448213+08:00
+END=2026-11-04T09:49:45.0448143+08:00
+SECONDS=0.1

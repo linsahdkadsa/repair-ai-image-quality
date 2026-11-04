@@ -1,0 +1,259 @@
+{
+  "phase": "P03",
+  "status": "accepted_with_limitations",
+  "previousHandoff": "docs/handoffs/P02.json",
+  "date": "2026-11-04",
+  "sourceRevision": "b498b8eabd0543ee8d04d9c33a52a8cacd1f45e9+p03-handoff-republish-working-tree",
+  "standardHashes": {
+    "architecture": "F32DA7BBBEF8B6369A7C6839A4411AF3553FE35E72C81775FF288294BB631C6F",
+    "frontend": "BDCBCC26FE6F7E482E7C27A7111DFD1D73CBD3D20D6708462B8FDF67D9CA73E2"
+  },
+  "outputs": [
+    {
+      "path": ".gitattributes",
+      "bytes": 166,
+      "sha256": "08FEC31C1187E105CFEFF19DB1F14F04A9002A7D9CFD01B052297E6E4EDC8ED4"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 278,
+      "sha256": "AB96D6CE3B565C6CC91EC4A04F3ADE6BD54B319CAFDE3616A3CDE0195B3CF806"
+    },
+    {
+      "path": "backend/openapi.json",
+      "bytes": 9071,
+      "sha256": "0C08B38D0A8999DF7DECAF5BAA3E438B995FD1D0D0CC17007AE18A17BDC9FA62"
+    },
+    {
+      "path": "backend/pyproject.toml",
+      "bytes": 518,
+      "sha256": "29F62514F4CAFE63912DCA0E2A775AD5B7A4D08C693C5801006124FDA5F71DD2"
+    },
+    {
+      "path": "backend/requirements.lock",
+      "bytes": 60674,
+      "sha256": "DC038B2704790A2473743D0318164D1FE4BBDF20B9DC728F6AB9CCDCBF54FB5D"
+    },
+    {
+      "path": "backend/src/api/app.py",
+      "bytes": 3611,
+      "sha256": "1F385B8D3EE9B79C3DD8EB8DF00BD2025814B628EE118AC356130465E2ED4BEC"
+    },
+    {
+      "path": "backend/src/api/dependencies.py",
+      "bytes": 1587,
+      "sha256": "9E8C548D452C8C26411613F500FCD9DC500443274E29BA641488964514DD6F3A"
+    },
+    {
+      "path": "backend/src/api/dto.py",
+      "bytes": 1796,
+      "sha256": "05E830C97E371C160BFDC32FCE98B656EF91CE52110125681A0A4F9D6F81D1A2"
+    },
+    {
+      "path": "backend/src/api/routes/__init__.py",
+      "bytes": 21,
+      "sha256": "73251698969455E3713D8F6D2E168844384EC40FE7BD26A57A447D4F99781283"
+    },
+    {
+      "path": "backend/src/api/routes/health.py",
+      "bytes": 1591,
+      "sha256": "5813F12AF0DC060C8B7269BD566997096ADDCEC86117420D08851A339EA5E0E3"
+    },
+    {
+      "path": "backend/src/api/routes/session.py",
+      "bytes": 910,
+      "sha256": "5BB76EEDFE6CCAB58C271F9E50819CC0B0D8BE8E7B4DC06BE92E0BE6EF6635FF"
+    },
+    {
+      "path": "backend/src/api/routes/uploads.py",
+      "bytes": 1739,
+      "sha256": "6A4AEF47854B990125E25D96F5C80BD0D9C8A6DFB56A151930AA4607FC543974"
+    },
+    {
+      "path": "backend/src/core/__init__.py",
+      "bytes": 37,
+      "sha256": "12AA8B5EFC575ADCD17D643AA128C7F9167ED50FB19B9B420D4B3E68548473AB"
+    },
+    {
+      "path": "backend/src/core/config.py",
+      "bytes": 8707,
+      "sha256": "51F345E477BCC4A2B21B8FB6655BFD5E04FF369C19FD320CFEBD6E57F1D19D97"
+    },
+    {
+      "path": "backend/src/core/errors.py",
+      "bytes": 1669,
+      "sha256": "D4E128AE84C702C5FDE3428D5094AABD79B5E9999721866D90D63B6E7CB2E30D"
+    },
+    {
+      "path": "backend/src/core/models.py",
+      "bytes": 470,
+      "sha256": "BA9C58E80C4D5879CFF2892CC85B28E1BC7C9B7C7D69368D963FD5D92DD94910"
+    },
+    {
+      "path": "backend/src/core/ports.py",
+      "bytes": 210,
+      "sha256": "C3637349028965339D37796020172D6AC327AF8F4376843CE26F217169348596"
+    },
+    {
+      "path": "backend/src/core/test_config.py",
+      "bytes": 3789,
+      "sha256": "5AD8F1B65602B95B2533CEEC1FC5303973046F7C005123D57B892566ACAD8B73"
+    },
+    {
+      "path": "backend/src/infra/__init__.py",
+      "bytes": 31,
+      "sha256": "DF611C9596CB8318ABD8BBB0F4CE50795CE482FC4ADED98F49C7F0F13BD337DB"
+    },
+    {
+      "path": "backend/src/infra/auth.py",
+      "bytes": 3123,
+      "sha256": "704D9E194389BD463EAAF3357F4958C0ADBDB106B7F170D7D7C086E84AE11767"
+    },
+    {
+      "path": "backend/src/infra/logging.py",
+      "bytes": 2036,
+      "sha256": "A93A646BF593D321E196A5F53C0AAFD961832B7FA01B50840865EACB0DB2A779"
+    },
+    {
+      "path": "backend/src/infra/security.py",
+      "bytes": 2092,
+      "sha256": "67B66FFC3799B2202C79DD09C16037EA15DDB33ED086BB3C35FC82DB581B27D9"
+    },
+    {
+      "path": "backend/src/infra/trace.py",
+      "bytes": 997,
+      "sha256": "A4A6AC7EA1290A237537924B93E32972A8535E36B0809AEDB9BC76B475FD6853"
+    },
+    {
+      "path": "backend/src/repo/__init__.py",
+      "bytes": 28,
+      "sha256": "EDD801E184C7C2B36D251AF5EB693AB470C2BEE3EF971E6B38DE2FDD29E2348F"
+    },
+    {
+      "path": "backend/src/repo/artifact_repository.py",
+      "bytes": 5040,
+      "sha256": "8A6679CA46E8FB0A990B3FFA67A9DEF3F4B7A4E6A805BCD23DE8D28B9769585C"
+    },
+    {
+      "path": "backend/src/repo/test_artifact_repository.py",
+      "bytes": 1930,
+      "sha256": "C3D65CA81A43C34255FC53F3AFE54FE51EA63E7BDE23B29EC609B77EF85B6361"
+    },
+    {
+      "path": "backend/src/service/__init__.py",
+      "bytes": 22,
+      "sha256": "BCF09DF5A9EBD8D025A54DE4D125B4792E0B4074BF030F5F3A5BF5B647A1CA0E"
+    },
+    {
+      "path": "backend/src/service/test_upload_service.py",
+      "bytes": 2056,
+      "sha256": "9F0953DAE2F157A2B6112D3B5A71CB6EF2F471F5F7F077BC9124A69242484F89"
+    },
+    {
+      "path": "backend/src/service/upload_service.py",
+      "bytes": 4805,
+      "sha256": "53F57247AE2EF2DA83AD71F7AE248AE44959D99B910A5F0F3ABD7BA3ACC4EB2E"
+    },
+    {
+      "path": "backend/tests/conftest.py",
+      "bytes": 2824,
+      "sha256": "8CE3012855D81AB7A7475372782EA56BA19038AFBAD8D87568B47E7C67E231F6"
+    },
+    {
+      "path": "backend/tests/test_security_contract.py",
+      "bytes": 9632,
+      "sha256": "9BFDDF699B9DBAAC059A0A489AE0D0495A38BABE0F4E26B6ADEF2FBF74538973"
+    },
+    {
+      "path": "backend/tests/test_upload_contract.py",
+      "bytes": 3729,
+      "sha256": "42B270AD7BDA3579D20BA8533079843014F6B067BA382E8746ECE32AC5461367"
+    },
+    {
+      "path": "deploy/config.example.yaml",
+      "bytes": 691,
+      "sha256": "6ADD59388538742181FA6808EC10373C0C19B009337DF47F93810AD447B03F34"
+    },
+    {
+      "path": "docs/handoffs/P03.md",
+      "bytes": 3456,
+      "sha256": "57512FC2EA9BB4731ECD420252F85CD716D00434829BB45403D97B8F57E272D0"
+    },
+    {
+      "path": "frontend/src/shared/api/generated.ts",
+      "bytes": 8642,
+      "sha256": "3910577632984855D456F1A12355EA19AD2E5F822DD949AB5034CBBC1CF56590"
+    },
+    {
+      "path": "package.json",
+      "bytes": 1625,
+      "sha256": "556A0BF9E8B58008F4E7ED21CDD061629BA5F4F83F7D38D04BCE145E8796EA47"
+    },
+    {
+      "path": "tools/check-api.mjs",
+      "bytes": 1461,
+      "sha256": "C446228CFBAE2A9EE26F4B5B6743DDEBD50DB23549E0C848A7C6BA404C1590C0"
+    },
+    {
+      "path": "tools/check-boundaries.mjs",
+      "bytes": 2046,
+      "sha256": "08C6426C0DA96FCBBC3173C00F88088EB4934E5D38BB83395AF06C3082FA8A1E"
+    },
+    {
+      "path": "tools/check-boundaries.test.mjs",
+      "bytes": 1234,
+      "sha256": "E7B37B1D5DC971748CF0B54A4D84BC9C10E07C4901EAE050F80E0098242B437D"
+    }
+  ],
+  "verification": [
+    {
+      "command": "npm run test:backend -- src/core/test_config.py src/repo/test_artifact_repository.py src/service/test_upload_service.py tests/test_security_contract.py tests/test_upload_contract.py -q",
+      "exitCode": 0,
+      "report": "docs/evidence/P03/targeted-tests.txt"
+    },
+    {
+      "command": "npm run api:generate",
+      "exitCode": 0,
+      "report": "docs/evidence/P03/api-generate.txt"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "report": "docs/evidence/P03/tests.txt"
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "report": "docs/evidence/P03/check.txt"
+    },
+    {
+      "command": "npm run check:handoff -- P03",
+      "exitCode": 0,
+      "report": "docs/evidence/P03/handoff-check.txt"
+    }
+  ],
+  "capabilities": {
+    "strictConfiguration": "verified",
+    "authenticatedRoles": "verified",
+    "credentialReload": "verified",
+    "traceAndErrorContract": "verified",
+    "securityHeaders": "verified",
+    "privateUploads": "verified",
+    "ownerIsolation": "verified",
+    "loggingDiagnostics": "verified",
+    "openapiTypeGeneration": "verified",
+    "taskPersistence": "not_implemented",
+    "businessE2E": "not_implemented",
+    "deployment": "not_verified",
+    "gptMazeModelDistribution": "blocked_pending_rights_confirmation"
+  },
+  "limitations": [
+    "Basic 认证只适用于受控 HTTPS 或本机入口，生产 TLS、代理和服务部署留待 P12 验证。",
+    "P05 引入真实前端资源后必须重新执行 CSP Report-Only 观测和强制策略验收。",
+    "排他实例锁 fail-closed，但不自动清理异常停机遗留的陈旧锁。",
+    "YAML 相对路径按进程工作目录解析，部署启动器必须固定工作目录。",
+    "P03 不包含任务持久化、算法执行、业务 E2E、视觉回归或生产部署。",
+    "GPT Maze ONNX 权重再分发授权仍待确认。"
+  ],
+  "nextPhase": "P04"
+}

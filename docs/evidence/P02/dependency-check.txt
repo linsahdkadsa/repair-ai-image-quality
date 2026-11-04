@@ -1,0 +1,6 @@
+
+> repair-ai-image@0.1.0 check:dependencies
+> node tools/check-dependencies.mjs
+
+依赖检查通过: 2 个中危 advisory 在显式 allowlist 中；锁文件仅使用官方 registry
+exitCode=0

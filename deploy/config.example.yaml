@@ -1,0 +1,28 @@
+# 全局配置示例。相对路径按启动进程的工作目录解析。
+server:
+  bind_host: 127.0.0.1
+  public_origin: http://127.0.0.1:3000
+  https: false
+  trusted_proxies: []
+
+data:
+  root: data
+
+auth:
+  # 凭据文件只允许顶层 users 列表；password_hash 必须使用应用的 scrypt 格式。
+  # 不要把真实用户名、口令或哈希提交到代码仓库。
+  credentials_file: deploy/credentials.yaml
+
+upload:
+  max_bytes: 20971520
+  max_pixels: 40000000
+  ttl_seconds: 86400
+
+models:
+  # 必需模型缺失时 /readyz 返回 503，但 /healthz 仍反映进程存活。
+  required_paths: []
+
+logging:
+  path: data/logs/app.jsonl
+  max_bytes: 5242880
+  backup_count: 5

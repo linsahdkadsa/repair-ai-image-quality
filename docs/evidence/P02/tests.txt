@@ -1,0 +1,124 @@
+
+> repair-ai-image@0.1.0 test
+> npm run test:tools && npm run test:backend && npm run test:frontend && npm run api:check
+
+
+> repair-ai-image@0.1.0 test:tools
+> node --test tools/*.test.mjs
+
+TAP version 13
+# Subtest: 拒绝 core 导入 service 及 shared 导入 features
+ok 1 - 拒绝 core 导入 service 及 shared 导入 features
+  ---
+  duration_ms: 43.0658
+  type: 'test'
+  ...
+# Subtest: 允许 workspace 链接并拒绝非官方 tarball 来源
+ok 2 - 允许 workspace 链接并拒绝非官方 tarball 来源
+  ---
+  duration_ms: 3.0654
+  type: 'test'
+  ...
+# Subtest: 仅接受 allowlist 中注明的中危 advisory
+ok 3 - 仅接受 allowlist 中注明的中危 advisory
+  ---
+  duration_ms: 0.4711
+  type: 'test'
+  ...
+# Subtest: 拒绝缺失产物
+ok 4 - 拒绝缺失产物
+  ---
+  duration_ms: 34.4669
+  type: 'test'
+  ...
+# Subtest: 拒绝哈希错误及失败证据
+ok 5 - 拒绝哈希错误及失败证据
+  ---
+  duration_ms: 27.3671
+  type: 'test'
+  ...
+# Subtest: 拒绝缺少前置交接
+ok 6 - 拒绝缺少前置交接
+  ---
+  duration_ms: 26.8926
+  type: 'test'
+  ...
+# Subtest: 拒绝缺失的验证报告
+ok 7 - 拒绝缺失的验证报告
+  ---
+  duration_ms: 46.2017
+  type: 'test'
+  ...
+# Subtest: dev launcher starts Vite from the frontend directory
+ok 8 - dev launcher starts Vite from the frontend directory
+  ---
+  duration_ms: 1.2705
+  type: 'test'
+  ...
+# Subtest: 占用端口会被明确拒绝
+ok 9 - 占用端口会被明确拒绝
+  ---
+  duration_ms: 43.0149
+  type: 'test'
+  ...
+# Subtest: 任一子进程异常退出后会终止其余进程且不用 shell
+ok 10 - 任一子进程异常退出后会终止其余进程且不用 shell
+  ---
+  duration_ms: 1.547
+  type: 'test'
+  ...
+# Subtest: 尚未实现的门禁必须失败而非空成功
+ok 11 - 尚未实现的门禁必须失败而非空成功
+  ---
+  duration_ms: 201.7402
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1042.4286
+
+> repair-ai-image@0.1.0 test:backend
+> node tools/run-python.mjs -m pytest tests
+
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.2.0, pluggy-1.7.0
+rootdir: G:\project\RepairAiImage\backend
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 1 item
+
+tests\test_health.py .                                                   [100%]
+
+============================== 1 passed in 0.43s ==============================
+
+> repair-ai-image@0.1.0 test:frontend
+> npm --workspace frontend run test -- --run
+
+
+> @repair-ai-image/frontend@0.1.0 test
+> vitest --run
+
+
+ RUN  v4.1.12 G:/project/RepairAiImage/frontend
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  12:51:02
+   Duration  4.84s (transform 170ms, setup 159ms, import 2.95s, tests 411ms, environment 916ms)
+
+
+> repair-ai-image@0.1.0 api:check
+> node tools/check-api.mjs
+
+G:\project\RepairAiImage\backend\openapi.json
+✨ openapi-typescript 7.13.0
+🚀 backend/openapi.json → C:\Users\leiyinfeng\AppData\Local\Temp\rai-openapi-CVJ7Bo\generated.ts [51.4ms]
+OpenAPI 类型与生成文件一致
+exitCode=0

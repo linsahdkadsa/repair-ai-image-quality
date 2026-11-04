@@ -1,0 +1,31 @@
+{
+  "dir": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\X01",
+  "candidates": [
+    {
+      "candidate": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\X01\\candidate_good.jpg",
+      "shape_score": 1.0,
+      "max_local_shift_px": 0.0,
+      "registration": {
+        "kind": "features",
+        "score": 1.0
+      },
+      "deltaE_after": 0.0,
+      "accepted": true
+    },
+    {
+      "candidate": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\X01\\candidate_moved.jpg",
+      "shape_score": 0.0,
+      "max_local_shift_px": 0.0,
+      "registration": {
+        "kind": "identity",
+        "score": 0.0
+      },
+      "deltaE_after": null,
+      "accepted": false
+    }
+  ],
+  "min_score": 0.45,
+  "chosen": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\X01\\candidate_good.jpg",
+  "output": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\X01\\X01_fixed.jpg",
+  "comparison": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\X01\\compare.jpg"
+}

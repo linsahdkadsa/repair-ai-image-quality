@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+# Keep binary fixtures and model assets byte-for-byte unchanged.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.onnx binary
+*.zip binary

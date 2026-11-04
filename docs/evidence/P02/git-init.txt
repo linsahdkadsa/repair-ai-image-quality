@@ -1,0 +1,8 @@
+P02 Git initialization evidence
+Date: 2026-11-04
+Precondition checks:
+- `git -C G:/project/RepairAiImage rev-parse --show-toplevel` failed: not a repository
+- `git -C G:/project rev-parse --show-toplevel` failed: not a repository
+Action: `git init`
+Result: initialized an independent empty repository at G:/project/RepairAiImage/.git/
+Commit/staging: none created

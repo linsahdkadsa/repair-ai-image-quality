@@ -1,0 +1,25 @@
+{
+  "wash_prompt": "Keep this image exactly the same: same composition, framing, product shape, buttons, labels, text, people, lighting, colors and background. Only re-render the velvet / fabric surfaces so they look clean, soft and natural like a real photo, removing the squiggly maze-like noise texture.",
+  "images": [
+    {
+      "input": "G:\\project\\RepairAiImage\\tests\\fixtures\\images\\D01_mazey.png",
+      "maze_score": 0.9595,
+      "needs_repair": true,
+      "reason": "GPT 图且检测到迷宫纹",
+      "wash_prompt": "Keep this image exactly the same: same composition, framing, product shape, buttons, labels, text, people, lighting, colors and background. Only re-render the velvet / fabric surfaces so they look clean, soft and natural like a real photo, removing the squiggly maze-like noise texture.",
+      "faces": 0,
+      "portrait": false,
+      "face_box": null
+    },
+    {
+      "input": "G:\\project\\RepairAiImage\\tests\\fixtures\\images\\D02_clean.png",
+      "maze_score": 0.0,
+      "needs_repair": false,
+      "reason": "GPT 图但几乎没有迷宫纹（maze_score=0.000）",
+      "wash_prompt": null,
+      "faces": 0,
+      "portrait": false,
+      "face_box": null
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+P01 model-rights recheck date: 2026-11-04
+Purpose: distinguish network reachability from model redistribution rights.
+
+Network reachability
+- GET https://api.github.com/repos/linsahdkadsa/repair-ai-image-quality/commits/49170b9f98be4541fb46c9d0fdc97a0c5078d8e0 returned HTTP 200.
+- The fixed upstream raw LICENSE, README.md, and training/README.md returned HTTP 200.
+- The prior source note said direct GitHub clone could not connect to GitHub 443; this recheck confirms that condition no longer applies.
+
+GPT maze model
+- Fixed upstream: linsahdkadsa/repair-ai-image-quality commit 49170b9f98be4541fb46c9d0fdc97a0c5078d8e0.
+- GitHub blob: scripts/models/gpt_maze_unet.onnx, blob 06a0a2fcffa7b39e825b61e2824c95b19fd3b40f, 1881630 bytes.
+- The training README says the shipped model was trained from the maintainer's own GPT Image 2.5 renders and image library. It does not grant independent redistribution rights for the weight or every training source.
+- Result: still blocked_pending_rights_confirmation.
+
+YuNet model
+- OpenCV Zoo reference branch head at recheck: 48b10fa505aeb51fbd127fc60a5c660040e823b7.
+- Directory: models/face_detection_yunet.
+- README blob: 32739bd42dd8467b606cfdd50b8e0232ece3b43c.
+- LICENSE blob: 4cdf89a445b7e84d2352700309440f8428be5f71, MIT License, copyright Shiqi Yu.
+- Model path: face_detection_yunet_2023mar.onnx; Git LFS pointer blob 2d8804a5986e229f1fde3a1994feacc66c91b58b; media asset size 232589 bytes.
+- Remote media SHA-256: 8F2383E4DD3CFBB4553EA8718107FC0423210DC964F9F4280604804ED2552FA4.
+- Local fixed-copy SHA-256: 8F2383E4DD3CFBB4553EA8718107FC0423210DC964F9F4280604804ED2552FA4.
+- Result: source and license evidence verified; preserve the upstream MIT notice when distributing this model.
+
+Overall gate
+- Network is no longer the blocking condition.
+- Overall model distribution remains blocked_pending_rights_confirmation because the GPT maze model is still unresolved.
+- No secrets or credentials were written to this record.

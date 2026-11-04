@@ -1,0 +1,124 @@
+
+> repair-ai-image@0.1.0 test
+> npm run test:tools && npm run test:backend && npm run test:frontend && npm run api:check
+
+
+> repair-ai-image@0.1.0 test:tools
+> node --test tools/*.test.mjs
+
+TAP version 13
+# Subtest: 拒绝 core 越层依赖和领域 DTO 框架，仅允许配置边界使用 Pydantic
+ok 1 - 拒绝 core 越层依赖和领域 DTO 框架，仅允许配置边界使用 Pydantic
+  ---
+  duration_ms: 32.9862
+  type: 'test'
+  ...
+# Subtest: 允许 workspace 链接并拒绝非官方 tarball 来源
+ok 2 - 允许 workspace 链接并拒绝非官方 tarball 来源
+  ---
+  duration_ms: 2.4201
+  type: 'test'
+  ...
+# Subtest: 仅接受 allowlist 中注明的中危 advisory
+ok 3 - 仅接受 allowlist 中注明的中危 advisory
+  ---
+  duration_ms: 1.3365
+  type: 'test'
+  ...
+# Subtest: 拒绝缺失产物
+ok 4 - 拒绝缺失产物
+  ---
+  duration_ms: 25.4112
+  type: 'test'
+  ...
+# Subtest: 拒绝哈希错误及失败证据
+ok 5 - 拒绝哈希错误及失败证据
+  ---
+  duration_ms: 28.6476
+  type: 'test'
+  ...
+# Subtest: 拒绝缺少前置交接
+ok 6 - 拒绝缺少前置交接
+  ---
+  duration_ms: 21.0954
+  type: 'test'
+  ...
+# Subtest: 拒绝缺失的验证报告
+ok 7 - 拒绝缺失的验证报告
+  ---
+  duration_ms: 21.1817
+  type: 'test'
+  ...
+# Subtest: dev launcher starts Vite from the frontend directory
+ok 8 - dev launcher starts Vite from the frontend directory
+  ---
+  duration_ms: 2.074
+  type: 'test'
+  ...
+# Subtest: 占用端口会被明确拒绝
+ok 9 - 占用端口会被明确拒绝
+  ---
+  duration_ms: 52.4599
+  type: 'test'
+  ...
+# Subtest: 任一子进程异常退出后会终止其余进程且不用 shell
+ok 10 - 任一子进程异常退出后会终止其余进程且不用 shell
+  ---
+  duration_ms: 1.2979
+  type: 'test'
+  ...
+# Subtest: 尚未实现的门禁必须失败而非空成功
+ok 11 - 尚未实现的门禁必须失败而非空成功
+  ---
+  duration_ms: 309.0717
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1042.8658
+
+> repair-ai-image@0.1.0 test:backend
+> node tools/run-python.mjs -m pytest tests
+
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.2.0, pluggy-1.7.0
+rootdir: C:\Users\leiyinfeng\.codex\worktrees\p03-auth-private-files\RepairAiImage\backend
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 26 items
+
+tests\test_security_contract.py ...................                      [ 73%]
+tests\test_upload_contract.py .......                                    [100%]
+
+============================= 26 passed in 11.19s =============================
+
+> repair-ai-image@0.1.0 test:frontend
+> npm --workspace frontend run test -- --run
+
+
+> @repair-ai-image/frontend@0.1.0 test
+> vitest --run
+
+
+ RUN  v4.1.12 C:/Users/leiyinfeng/.codex/worktrees/p03-auth-private-files/RepairAiImage/frontend
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  14:05:27
+   Duration  9.22s (transform 276ms, setup 223ms, import 6.38s, tests 813ms, environment 1.28s)
+
+
+> repair-ai-image@0.1.0 api:check
+> node tools/check-api.mjs
+
+C:\Users\leiyinfeng\.codex\worktrees\p03-auth-private-files\RepairAiImage\backend\openapi.json
+✨ openapi-typescript 7.13.0
+🚀 backend/openapi.json → C:\Users\leiyinfeng\AppData\Local\Temp\rai-openapi-MrGwQR\generated.ts [82.7ms]
+OpenAPI 类型与生成文件一致

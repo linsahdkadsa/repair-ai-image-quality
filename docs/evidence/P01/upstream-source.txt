@@ -1,0 +1,13 @@
+repository=https://github.com/linsahdkadsa/repair-ai-image-quality
+owner=linsahdkadsa
+commit=49170b9f98be4541fb46c9d0fdc97a0c5078d8e0
+commit_message=controller auto: the skill calls Nano Banana itself...
+commit_date=2026-10-12T11:36:38+08:00
+tree=6bc9916f817c53f81602427b625927011607ff8b
+archive_sha256=9835AB58F8E7F57DD52B08568795D610439D851CCCCB4D4417A204132F9A95F1
+archive_method=GitHub API zipball; direct git clone failed because this environment could not connect to GitHub 443
+vendor=G:/project/RepairAiImage/vendor/repair-ai-image-quality
+nested_git=absent
+root_license=MIT; vendor/repair-ai-image-quality/LICENSE
+model_license=gpt_maze_unet training provenance is described in training/README.md but no independent model/data redistribution grant was found
+yunet_license=no independent model license or provenance note found in fixed copy

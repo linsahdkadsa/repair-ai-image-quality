@@ -1,0 +1,27 @@
+{
+  "input": "G:\\project\\RepairAiImage\\tests\\fixtures\\images\\B01_02.png",
+  "source": null,
+  "steps": [
+    {
+      "route": "gpt-demaze",
+      "strength": 60,
+      "gpt_hint": true,
+      "maze_score": 0.0,
+      "maze_area_fraction": 0.0,
+      "decision": "GPT 图但几乎没有迷宫纹（maze_score=0.000）",
+      "grid": {
+        "fold_z_before": {
+          "2": 0.0,
+          "4": 0.0,
+          "8": 0.0
+        },
+        "phase_consistency": 0.0,
+        "applied": false
+      },
+      "method": "spectral",
+      "action": "no-op"
+    }
+  ],
+  "output": "G:\\project\\RepairAiImage\\docs\\evidence\\P01\\results\\B01\\B01_02_fixed.png",
+  "seconds": 0.13
+}

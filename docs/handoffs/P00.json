@@ -1,0 +1,83 @@
+{
+  "phase": "P00",
+  "status": "accepted",
+  "previousHandoff": null,
+  "sourceRevision": "documentation-baseline",
+  "standardHashes": {
+    "architecture": "F32DA7BBBEF8B6369A7C6839A4411AF3553FE35E72C81775FF288294BB631C6F",
+    "frontend": "BDCBCC26FE6F7E482E7C27A7111DFD1D73CBD3D20D6708462B8FDF67D9CA73E2"
+  },
+  "outputs": [
+    {
+      "path": "docs/SPEC.md",
+      "sha256": "208E69847285CDE9C040154A39CE5F7AFA3C7513738D7D8B816B9C504A81CD9E"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "78686D9F37C4FC98659B1D2F3CFAE1895E33A4830670A9F7E1D413A28A4B0220"
+    },
+    {
+      "path": "docs/FRONTEND_ARCHITECTURE.md",
+      "sha256": "F08BB253A1009FBD1D24C3DA6A29535056EB7E2683F1CC89CBB7F4379526FD2B"
+    },
+    {
+      "path": "docs/API_CONTRACT.md",
+      "sha256": "B5BB659EA59FEBE55F73E4A1A3E942552C9AF6637AC7ACC7F7D91E88636F9FFD"
+    },
+    {
+      "path": "docs/TEST_PLAN.md",
+      "sha256": "4D9D31023C10AAE7222AAF5CF637471D87FF9986A36E02FB580F7D54BAB9DD7A"
+    },
+    {
+      "path": "docs/adr/0001-local-identity-and-storage.md",
+      "sha256": "25334D7C32C30209B884519545D205B732D4EB98B6EB65E4BBB9BE952CF62210"
+    },
+    {
+      "path": "docs/handoffs/P00.md",
+      "sha256": "3ADE590875B59108EF6B8B0C1F544C96765C531597E209D107AD2EAE31DD7DA3"
+    },
+    {
+      "path": "docs/evidence/P00/standard-hashes.txt",
+      "sha256": "10A6AA3BB9D9C59A888CC7F1A987545B58379989BE2FD8FFB93FD446B843DC63"
+    },
+    {
+      "path": "docs/evidence/P00/document-review.txt",
+      "sha256": "01B12972967FE689DC64CFE2937B7EA641D6A3C0D29C76F09EEB146203888304"
+    },
+    {
+      "path": "docs/evidence/P00/handoff-check.txt",
+      "sha256": "074D3051C18B3640A57FB7354DC9154150E2F149260E47D5765918B12739CA56"
+    }
+  ],
+  "verification": [
+    {
+      "command": "Get-FileHash -Algorithm SHA256 -LiteralPath 'G:/project/RepairAiImage/docs/standards/通用架构设定.md', 'G:/project/RepairAiImage/docs/standards/通用前端设定.md'",
+      "exitCode": 0,
+      "report": "docs/evidence/P00/standard-hashes.txt"
+    },
+    {
+      "command": "Get-ChildItem -LiteralPath 'G:/project/RepairAiImage/docs' -File | Select-Object Name,Length",
+      "exitCode": 0,
+      "report": "docs/evidence/P00/handoff-check.txt"
+    },
+    {
+      "command": "P00 document and API coverage review (PowerShell)",
+      "exitCode": 0,
+      "report": "docs/evidence/P00/document-review.txt"
+    }
+  ],
+  "capabilities": {
+    "demaze": "unverified",
+    "colorCorrection": "unverified",
+    "chain": "unverified",
+    "pasteBack": "unverified",
+    "manualEnhancement": "unverified",
+    "transplant": "unverified"
+  },
+  "limitations": [
+    "No source code or npm project exists; code tests/build were not applicable to P00.",
+    "No real image samples, identity integration details, target-device measurements, or real-user performance data were supplied.",
+    "Acceptance covers documentation baseline only; no algorithm, runtime, or deployment capability is verified."
+  ],
+  "nextPhase": "P01"
+}

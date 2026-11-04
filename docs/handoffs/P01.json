@@ -1,0 +1,520 @@
+{
+  "phase": "P01",
+  "status": "accepted_with_limitations",
+  "previousHandoff": "docs/handoffs/P00.json",
+  "date": "2026-11-04",
+  "sourceRevision": "repair-ai-image-quality@49170b9f98be4541fb46c9d0fdc97a0c5078d8e0",
+  "upstream": {
+    "repository": "https://github.com/linsahdkadsa/repair-ai-image-quality",
+    "commit": "49170b9f98be4541fb46c9d0fdc97a0c5078d8e0",
+    "tree": "6bc9916f817c53f81602427b625927011607ff8b",
+    "archiveSha256": "9835AB58F8E7F57DD52B08568795D610439D851CCCCB4D4417A204132F9A95F1",
+    "license": "MIT code license; YuNet source/license verified; GPT maze model rights pending"
+  },
+  "outputs": [
+    {
+      "path": "docs/UPSTREAM_BASELINE.md",
+      "bytes": 5283,
+      "sha256": "D53E0D4E43E7E9E70FA9C588D041381F7296383670EA127D0935CC01636E8CAD"
+    },
+    {
+      "path": "docs/ENGINE_CAPABILITY_MATRIX.md",
+      "bytes": 4303,
+      "sha256": "73D29A7DE802B6ADED3D4B0CB98423AF55C25C8ED579847E081F1954CD3CE334"
+    },
+    {
+      "path": "docs/fixtures/manifest.yaml",
+      "bytes": 4108,
+      "sha256": "8D04E1AEC4E81A287CDDEE61674DE5D2F963BE164CBC4FA749D411729A8BBE5E"
+    },
+    {
+      "path": "docs/handoffs/P01.md",
+      "bytes": 3061,
+      "sha256": "C0F7A0BD4B65E325BD9C001EDF5C37EBA6022737B8AA9FD5E83600DA51359C19"
+    },
+    {
+      "path": "docs/evidence/P01/environment.txt",
+      "bytes": 496,
+      "sha256": "288BD8B3C0A5678BFBDCCC1B1E461F4B6EC74B12293F719F6A3FD8468BD3D55A"
+    },
+    {
+      "path": "docs/evidence/P01/upstream-source.txt",
+      "bytes": 847,
+      "sha256": "A95CAB01AB7B1FB66F95F49A24997CD79626CF7F16F8A40F6B222A27CD75E63F"
+    },
+    {
+      "path": "docs/evidence/P01/license-review.txt",
+      "bytes": 1311,
+      "sha256": "8DE3084470A61C60A0D80B7F9B20A7A8A968AF56FA37DE59335596D3E0A1F0C4"
+    },
+    {
+      "path": "docs/evidence/P01/model-rights-recheck-20261104.txt",
+      "bytes": 1976,
+      "sha256": "45E53755C3EDE5CD3998A7644BA95054A8BA9E61E44340E4D70BD75A65A340AF"
+    },
+    {
+      "path": "docs/evidence/P01/commands.txt",
+      "bytes": 3747,
+      "sha256": "8DAE3069683EBEB2C8D3EC13E47A1A079F40EA147BCFDEFE447A9953A17A1006"
+    },
+    {
+      "path": "docs/evidence/P01/results-summary.md",
+      "bytes": 1308,
+      "sha256": "8A3483B145274BBD3B53BDB54EEC95B2EC45ABFE70F0020C7F9B42E5DA7F4858"
+    },
+    {
+      "path": "docs/evidence/P01/generate_fixtures.py",
+      "bytes": 4587,
+      "sha256": "92016A00B5F45A637F1FA2236F8F18D1577737616E5C6981B027E693F1A2781A"
+    },
+    {
+      "path": "tests/fixtures/images/fixture-notes.json",
+      "bytes": 197,
+      "sha256": "5012FCD614F55B72CBD60CDCD472D7A3821F3B87D046DBD49290AC1277E6B3C1"
+    },
+    {
+      "path": "vendor/repair-ai-image-quality/LICENSE",
+      "bytes": 1066,
+      "sha256": "8C8A325CEAF29F3F6A600DE7596B70FEF365AE7A18CBB043CA3DEB97B38F2CC9"
+    },
+    {
+      "path": "vendor/repair-ai-image-quality/README.md",
+      "bytes": 14964,
+      "sha256": "981E21208B32F3DAEBD5E0BF3B34A38545D359EC9778D28B09CA4791FF1FC818"
+    },
+    {
+      "path": "vendor/repair-ai-image-quality/training/README.md",
+      "bytes": 2336,
+      "sha256": "835B876031539C25055CD5BFA4F332B77E1DB69597F5F8A49D7414A9D2584AB6"
+    },
+    {
+      "path": "vendor/repair-ai-image-quality/scripts/models/gpt_maze_unet.onnx",
+      "bytes": 1881630,
+      "sha256": "C8C9515C2D7E18E4D08E7B867E92BFFF75AB357AAAA6DFBB48920D685DCA5F09"
+    },
+    {
+      "path": "vendor/repair-ai-image-quality/scripts/models/face_detection_yunet_2023mar.onnx",
+      "bytes": 232589,
+      "sha256": "8F2383E4DD3CFBB4553EA8718107FC0423210DC964F9F4280604804ED2552FA4"
+    },
+    {
+      "path": "tests/fixtures/images/B01_01.png",
+      "bytes": 95730,
+      "sha256": "413093D2B4D115949FC52C5253CA7F3337F6A4466633C0CBB856490C6210E983"
+    },
+    {
+      "path": "tests/fixtures/images/B01_02.png",
+      "bytes": 759,
+      "sha256": "D7F1A396C992BE81F521D656BBA8540CD8CE7E14E31F5699FFD8E304F36262A6"
+    },
+    {
+      "path": "tests/fixtures/images/C01_edit.png",
+      "bytes": 1882,
+      "sha256": "50D00D6C1773F8ED2B8FDC1A9F4164BB3FD352ED4460236904E758CEC68CA79C"
+    },
+    {
+      "path": "tests/fixtures/images/C01_source.png",
+      "bytes": 2011,
+      "sha256": "E85D06929ED335DE331D2D70E19F1FCC3E3499F15DE0FF4B9A01B988E8B352D5"
+    },
+    {
+      "path": "tests/fixtures/images/C02_grey_edit.png",
+      "bytes": 854,
+      "sha256": "4C1CA8FA1BB41EAC482F63EBBF56592112220E1BC8DE535394B76A8EBB993E3B"
+    },
+    {
+      "path": "tests/fixtures/images/C02_grey_source.png",
+      "bytes": 825,
+      "sha256": "6FBB8C08BA64C27590216127FACFA65EF5F02BBF2EFBE747053389B0738213E2"
+    },
+    {
+      "path": "tests/fixtures/images/C03_intentional_grade_edit.png",
+      "bytes": 2013,
+      "sha256": "DCBA123951E5E7CD5140882283C179CFC170043C9DEA63C33C08669247C56269"
+    },
+    {
+      "path": "tests/fixtures/images/C03_intentional_grade_source.png",
+      "bytes": 2011,
+      "sha256": "E85D06929ED335DE331D2D70E19F1FCC3E3499F15DE0FF4B9A01B988E8B352D5"
+    },
+    {
+      "path": "tests/fixtures/images/D01_mazey.png",
+      "bytes": 95730,
+      "sha256": "413093D2B4D115949FC52C5253CA7F3337F6A4466633C0CBB856490C6210E983"
+    },
+    {
+      "path": "tests/fixtures/images/D02_clean.png",
+      "bytes": 759,
+      "sha256": "D7F1A396C992BE81F521D656BBA8540CD8CE7E14E31F5699FFD8E304F36262A6"
+    },
+    {
+      "path": "tests/fixtures/images/D03_large_exif.jpg",
+      "bytes": 156779,
+      "sha256": "A744762895D629C7C3E5E7603E5DC3075C44950176264C12B1E953E235D9CB6E"
+    },
+    {
+      "path": "tests/fixtures/images/D04_scaled_texture.png",
+      "bytes": 36382,
+      "sha256": "02030458F1AAE084258FFF17A834ACD88EA8E12E039FE7463D788D2C238483FE"
+    },
+    {
+      "path": "tests/fixtures/images/E01_noisy.png",
+      "bytes": 95730,
+      "sha256": "413093D2B4D115949FC52C5253CA7F3337F6A4466633C0CBB856490C6210E983"
+    },
+    {
+      "path": "tests/fixtures/images/E01_truth.png",
+      "bytes": 759,
+      "sha256": "D7F1A396C992BE81F521D656BBA8540CD8CE7E14E31F5699FFD8E304F36262A6"
+    },
+    {
+      "path": "tests/fixtures/images/P01_local_edit.png",
+      "bytes": 2004,
+      "sha256": "3023134BF5F0B93A458EF6011E9C0D14C5A85ABFD712FF0F1DEE615199AD5824"
+    },
+    {
+      "path": "tests/fixtures/images/P01_local_source.png",
+      "bytes": 2011,
+      "sha256": "E85D06929ED335DE331D2D70E19F1FCC3E3499F15DE0FF4B9A01B988E8B352D5"
+    },
+    {
+      "path": "tests/fixtures/images/X01_product.png",
+      "bytes": 1428,
+      "sha256": "EA09C70B3078639D2926503EAB1F8BE2474AD1E29AF099F72164B8587F6E1055"
+    },
+    {
+      "path": "tests/fixtures/images/X01_scene.png",
+      "bytes": 1871,
+      "sha256": "D0913B2D80EC7646AA51452F1BBC3BF80AB54272E20FDA08534735F95BAEDA83"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/B01-batch.txt",
+      "bytes": 332,
+      "sha256": "50754879F4681A35C3C019CC8F6261D4FE05F8D0130EBC8D378B4679FA8C9888"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/C01-color.txt",
+      "bytes": 334,
+      "sha256": "80CEADAAA9B096F66426F4C6681B293E9527FA18D5DD961ED16A949A5D7B3470"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/C02-grey-source.txt",
+      "bytes": 334,
+      "sha256": "9D440D78154F1D605D285ED11433A45DA0E3601B25C0FADDA929A5A2C5A3215A"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/C03-intentional-grade.txt",
+      "bytes": 334,
+      "sha256": "C1C9BD94C54FCD4A1BED4398457D39912D020318C237DBD3A8F4E550DC57F8AC"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/controller-manual.txt",
+      "bytes": 334,
+      "sha256": "2FEC58034389D631CE2A6CD0D52FFEEE29624E3299276C4E8D1247A035A71957"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/controller-plan.txt",
+      "bytes": 332,
+      "sha256": "62087C0879C228236A3CD7008C09180DC6DEA23396ECE6E146C28CD94DF098E9"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/D01-demaze.txt",
+      "bytes": 334,
+      "sha256": "E80C976F5936C9ED17C1D7DA40185C26BBA9436E4B28FF068FA09EEA332602EF"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/D02-clean.txt",
+      "bytes": 334,
+      "sha256": "B3425CB784E21BA2CF65F1DA1AB734862F32F26F9EFA56079264AF6CD9854A4C"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/D03-large-exif.txt",
+      "bytes": 334,
+      "sha256": "E64D1FFB25A1FC6F31CAA52B53F9D3DF4ED622008657F96236ED9ADA14853318"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/D04-scaled.txt",
+      "bytes": 334,
+      "sha256": "A8A913F2EE2C3CB4E304ED5B3BCBBB1DF3F4B7BBDEEE49678BFAD6BBE5D8E1B0"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/P01-paste-back.txt",
+      "bytes": 334,
+      "sha256": "2FF7B2DE1BF4C497525EA5847E4419C9871B797AB6191F2727CEA3705F4B760F"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/X01-transplant-finish.txt",
+      "bytes": 334,
+      "sha256": "8C647428A6B7DBA500AE9AFC0ADA3F1A5A2A81D482A36CB7D3AAC25A1CF63345"
+    },
+    {
+      "path": "docs/evidence/P01/run-logs/X01-transplant-prep.txt",
+      "bytes": 334,
+      "sha256": "8CBAD1FFB3841B395236665C83A0A2C2FC9242D037553E57DD1E4B8DF3BD3A53"
+    },
+    {
+      "path": "docs/evidence/P01/results/B01/B01_01_fixed.json",
+      "bytes": 878,
+      "sha256": "B88A3E659C857844903804293653AA7A0099EABAC2F406C5892FD1E59FD9FD5C"
+    },
+    {
+      "path": "docs/evidence/P01/results/B01/B01_01_fixed.png",
+      "bytes": 92156,
+      "sha256": "F821C3B88AC88E05817FE184CE6E57F0FBCDB3B06A955F01F7AA20EA7F5AE055"
+    },
+    {
+      "path": "docs/evidence/P01/results/B01/B01_02_fixed.json",
+      "bytes": 709,
+      "sha256": "000CFDC8A167E2207415C4D4BD4DF5F8FFFF304A4C5A62DFBAEFC969A94F95F2"
+    },
+    {
+      "path": "docs/evidence/P01/results/B01/B01_02_fixed.png",
+      "bytes": 759,
+      "sha256": "D7F1A396C992BE81F521D656BBA8540CD8CE7E14E31F5699FFD8E304F36262A6"
+    },
+    {
+      "path": "docs/evidence/P01/results/C01/C01_fixed.png",
+      "bytes": 3484,
+      "sha256": "A07532457C9E1776658BF0E633D834CA67E399B3D3D6E2531A01092748A18C79"
+    },
+    {
+      "path": "docs/evidence/P01/results/C01/compare.png",
+      "bytes": 78937,
+      "sha256": "04C45C771C03CB2AC6D15C1A49402210E5F676EF4DD940D5859EE1A6ABA9CE85"
+    },
+    {
+      "path": "docs/evidence/P01/results/C01/report.json",
+      "bytes": 1264,
+      "sha256": "E717C16C6CCDFCDE4F639C5900422635C46F59AECB5C62720D238D8519463CB6"
+    },
+    {
+      "path": "docs/evidence/P01/results/C02/C02_fixed.png",
+      "bytes": 854,
+      "sha256": "4C1CA8FA1BB41EAC482F63EBBF56592112220E1BC8DE535394B76A8EBB993E3B"
+    },
+    {
+      "path": "docs/evidence/P01/results/C02/report.json",
+      "bytes": 874,
+      "sha256": "74C97C368F5820C44D2B4EE4382BE6CCDFED81C3DED2812FC8DB3A30159931A7"
+    },
+    {
+      "path": "docs/evidence/P01/results/C03/C03_fixed.png",
+      "bytes": 2013,
+      "sha256": "DCBA123951E5E7CD5140882283C179CFC170043C9DEA63C33C08669247C56269"
+    },
+    {
+      "path": "docs/evidence/P01/results/C03/report.json",
+      "bytes": 1048,
+      "sha256": "951CB21A369B70ECA899FA09C0AFA6C86E8A9489CEE2A5A9DCE76635B3AF1FE2"
+    },
+    {
+      "path": "docs/evidence/P01/results/controller-manual/washed/提示词.txt",
+      "bytes": 286,
+      "sha256": "AD655499404B0B653B766A35DB8DFA6804713AF301E6569A783FE75228A908CE"
+    },
+    {
+      "path": "docs/evidence/P01/results/controller-manual/washed/怎么洗.md",
+      "bytes": 944,
+      "sha256": "E0279DCF2C3BACDABDDFE615735A8E30508B81B9969016730B4F0311F3EC5109"
+    },
+    {
+      "path": "docs/evidence/P01/results/controller-manual/washed/待洗/D01_mazey.png",
+      "bytes": 95730,
+      "sha256": "413093D2B4D115949FC52C5253CA7F3337F6A4466633C0CBB856490C6210E983"
+    },
+    {
+      "path": "docs/evidence/P01/results/controller-plan/plan.json",
+      "bytes": 1248,
+      "sha256": "64E0737A3634A02727F192174FBD80E5136FAD94A8524DD04E26E5B390A8A5AC"
+    },
+    {
+      "path": "docs/evidence/P01/results/D01/D01_mazey_fixed_compare.png",
+      "bytes": 358369,
+      "sha256": "3761DC3BE7F159203864D1C0C2B54D61158A80556EF5C751C186756E5619624B"
+    },
+    {
+      "path": "docs/evidence/P01/results/D01/D01_mazey_fixed.json",
+      "bytes": 995,
+      "sha256": "DAD89226133BCD523862D90C1633A069F5DA88883EAA7BEC3F461DB5AFDAE166"
+    },
+    {
+      "path": "docs/evidence/P01/results/D01/D01_mazey_fixed.png",
+      "bytes": 92156,
+      "sha256": "F821C3B88AC88E05817FE184CE6E57F0FBCDB3B06A955F01F7AA20EA7F5AE055"
+    },
+    {
+      "path": "docs/evidence/P01/results/D02/D02_clean_fixed_compare.png",
+      "bytes": 126252,
+      "sha256": "058138A5FCD1A11563C92BCE2328457A74D8B9C7B0426B84957AC9F785ABFEE7"
+    },
+    {
+      "path": "docs/evidence/P01/results/D02/D02_clean_fixed.json",
+      "bytes": 715,
+      "sha256": "4613D469D3CDA7C8CD3A5FB952326DC635CA3FE5E17EE536E1710E219722C960"
+    },
+    {
+      "path": "docs/evidence/P01/results/D02/D02_clean_fixed.png",
+      "bytes": 759,
+      "sha256": "D7F1A396C992BE81F521D656BBA8540CD8CE7E14E31F5699FFD8E304F36262A6"
+    },
+    {
+      "path": "docs/evidence/P01/results/D03/D03_large_exif_fixed.jpg",
+      "bytes": 139516,
+      "sha256": "66A97C414E30F84219AB84C4965A33B5BAF7B950535022F13F0459DA596816BA"
+    },
+    {
+      "path": "docs/evidence/P01/results/D03/D03_large_exif_fixed.json",
+      "bytes": 557,
+      "sha256": "7464C9B28292BD8BBC6020DDCC4F44A586CD80FCE11B227781DD98FF2DDBE488"
+    },
+    {
+      "path": "docs/evidence/P01/results/D04/D04_scaled_texture_fixed.json",
+      "bytes": 737,
+      "sha256": "7C7AB56D82E7F272049D5075736348A1E75D46FDC9F76F063CB9A2E2AA16F76F"
+    },
+    {
+      "path": "docs/evidence/P01/results/D04/D04_scaled_texture_fixed.png",
+      "bytes": 36382,
+      "sha256": "02030458F1AAE084258FFF17A834ACD88EA8E12E039FE7463D788D2C238483FE"
+    },
+    {
+      "path": "docs/evidence/P01/results/fallback/D01_spectral.png",
+      "bytes": 87216,
+      "sha256": "942CD80FC46BB899E89B216FC260EA6385E579EEBBB76BD743FB7176455E540C"
+    },
+    {
+      "path": "docs/evidence/P01/results/fallback/report.json",
+      "bytes": 809,
+      "sha256": "AD7138DC0001F21E39A956867F64ADADB960015A666B5BB2AF73352116871D80"
+    },
+    {
+      "path": "docs/evidence/P01/results/P01/P01_local_edit_fixed_compare.png",
+      "bytes": 50333,
+      "sha256": "9CB388A8E494EEFCC2E63FBB2AA03AFB52F8EE157EFBD32BCDD7F2BF4E5CCA11"
+    },
+    {
+      "path": "docs/evidence/P01/results/P01/P01_local_edit_fixed.json",
+      "bytes": 1890,
+      "sha256": "B04CE885E3E87C09828827B0EF4817ED2E2093FC657F0DB7A84BE3033B4173B2"
+    },
+    {
+      "path": "docs/evidence/P01/results/P01/P01_local_edit_fixed.png",
+      "bytes": 4271,
+      "sha256": "157F1D01B910CE6F99BB5C53E09F4305500D6B8B1EAB141DE25D64D59913C05D"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/_transplant_crop.png",
+      "bytes": 3128,
+      "sha256": "60312495DC05CBF7B649010700159AE0B16CBD832F870AE46B71C02439CC481D"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/blend_input.png",
+      "bytes": 21364,
+      "sha256": "D14682EFF668AA6061BA84FE776502F03264FB3405DFB60895BF23996B0115AB"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/candidate_good.jpg",
+      "bytes": 6391,
+      "sha256": "3BD6AFC16BD5234673DC2F602FFEC0252DE86E64477DDFEA5D2692E709774007"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/candidate_moved.jpg",
+      "bytes": 8413,
+      "sha256": "EB76DB661125D4E65A6A6983FBAE757991E47C8851158F006F15B8FF79A90164"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/compare.jpg",
+      "bytes": 111388,
+      "sha256": "861EFFDFD92B22938E946FCCA5B72615B5A89690236256A64BDDD5661CF11468"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/finish_report.json",
+      "bytes": 1051,
+      "sha256": "2484D928B38CC594C87B7014E0B9B3C9A0D5FF86AA28EC80D3E033D7610FFC42"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/guide.jpg",
+      "bytes": 7574,
+      "sha256": "F332B937CED734A61E8595F83F950425BED5F89F37B44822CE631AB6B313C4E2"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/meta.json",
+      "bytes": 883,
+      "sha256": "AC71C632F5ADC2DA1166861F31CDF6CD3CBF6F07C02D33F16316B55E07B2F9CD"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/part_mask.npy",
+      "bytes": 250128,
+      "sha256": "334E9BD62F120EAAB3D5EBD724141B99BAA918418181A8801A22266E8A3103D7"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/prompt.txt",
+      "bytes": 512,
+      "sha256": "9E564FADD5C6CD051DF74F86336B774CBD7950236AD6BB71A1DD373FD3626A2C"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/transplant.jpg",
+      "bytes": 6391,
+      "sha256": "3BD6AFC16BD5234673DC2F602FFEC0252DE86E64477DDFEA5D2692E709774007"
+    },
+    {
+      "path": "docs/evidence/P01/results/X01/X01_fixed.jpg",
+      "bytes": 6397,
+      "sha256": "A848F45E540F6C845204660A20D73CEF955CEA256FE4CE5AFD8D671E06BADB7C"
+    }
+  ],
+  "verification": [
+    {
+      "command": "pwsh scripts/run.ps1 selftest",
+      "exitCode": 0,
+      "report": "docs/evidence/P01/run-logs/selftest-pwsh.txt"
+    },
+    {
+      "command": "python scripts/repair.py --help; python scripts/gpt_demaze.py --help; python scripts/color_match.py --help; python scripts/controller.py --help; python scripts/part_transplant.py --help; python scripts/portrait.py --help; python scripts/wash.py --help; pwsh scripts/run.ps1 --help",
+      "exitCode": 0,
+      "report": "docs/.p01-upstream-review-20261104/run-logs/*-help.txt"
+    },
+    {
+      "command": "P01 fixture generator",
+      "exitCode": 0,
+      "report": "docs/evidence/P01/generate_fixtures.py"
+    },
+    {
+      "command": "D01-D04, C01-C03, P01, B01, controller, X01 real runs",
+      "exitCode": 0,
+      "report": "docs/evidence/P01/commands.txt"
+    },
+    {
+      "command": "npm install / npm test",
+      "exitCode": null,
+      "report": "not applicable: package.json absent"
+    }
+  ],
+  "capabilities": {
+    "demaze": "verified_unet_and_spectral_fallback",
+    "colorCorrection": "verified_with_skip_boundaries",
+    "chain": "help_and_source_verified_pending_fixture",
+    "pasteBack": "verified",
+    "batch": "verified",
+    "manualEnhancement": "manual_branch_verified_external_wash_pending",
+    "portrait": "yunet_load_verified_full_route_pending",
+    "transplant": "synthetic_geometry_verified_real_review_pending"
+  },
+  "gates": {
+    "modelDistribution": "blocked_pending_rights_confirmation",
+    "realBusinessImages": "not_provided",
+    "npmProject": "absent",
+    "targetWindowsAcceptance": "not_run",
+    "M1": "not_passed",
+    "M2": "not_passed",
+    "M3": "not_passed"
+  },
+  "limitations": [
+    "GPT maze ONNX model rights and training-data redistribution rights were not independently confirmed; YuNet source and MIT license evidence were verified after network recovery.",
+    "All P01 fixtures are synthetic and do not prove real-business visual quality.",
+    "No package.json exists; npm install and npm test were not applicable.",
+    "No identity, browser E2E, deployment, target-machine, or real-user performance acceptance was run.",
+    "Upstream --wash-cmd uses shell=True and is not a safe application boundary."
+  ],
+  "nextPhase": "P02"
+}

@@ -1,0 +1,12 @@
+P02 development launcher smoke test
+Date: 2026-11-04
+Command: node tools/dev.mjs
+Observed:
+- Vite 7.3.7 listened at http://127.0.0.1:3000/
+- GET / returned HTTP 200 with title "Repair AI Image"
+- Uvicorn listened at http://127.0.0.1:8000
+- GET /healthz returned HTTP 200 {"status":"ok"}
+- GET /readyz returned HTTP 200 {"status":"ready","ready":true}
+- A second `node tools/dev.mjs` exited 1 with `端口 3000 已被占用`
+- Ctrl+C stopped the managed launcher; subsequent Get-NetTCPConnection found no listeners on 3000 or 8000
+Result: PASS

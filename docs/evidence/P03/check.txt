@@ -1,0 +1,32 @@
+
+> repair-ai-image@0.1.0 check
+> npm run check:dependencies && npm run check:boundaries && npm run check:handoff -- P03 && npm run check:frontend && npm run check:python
+
+
+> repair-ai-image@0.1.0 check:dependencies
+> node tools/check-dependencies.mjs
+
+依赖检查通过: 2 个中危 advisory 在显式 allowlist 中；锁文件仅使用官方 registry
+
+> repair-ai-image@0.1.0 check:boundaries
+> node tools/check-boundaries.mjs
+
+架构边界检查通过
+
+> repair-ai-image@0.1.0 check:handoff
+> node tools/check-handoff.mjs P03
+
+P03 交接文件及其前置产物校验通过
+
+> repair-ai-image@0.1.0 check:frontend
+> npm --workspace frontend run check
+
+
+> @repair-ai-image/frontend@0.1.0 check
+> tsc --noEmit && eslint src --max-warnings 0
+
+
+> repair-ai-image@0.1.0 check:python
+> node tools/run-python.mjs -m ruff check src tests
+
+All checks passed!
