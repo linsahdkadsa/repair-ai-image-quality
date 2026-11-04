@@ -3,26 +3,31 @@
   "status": "accepted_with_limitations",
   "previousHandoff": "docs/handoffs/P02.json",
   "date": "2026-11-04",
-  "sourceRevision": "865f3f489b7be3ca8ada383b77f515352c131d99+p03-working-tree",
+  "sourceRevision": "b498b8eabd0543ee8d04d9c33a52a8cacd1f45e9+p03-handoff-republish-working-tree",
   "standardHashes": {
     "architecture": "F32DA7BBBEF8B6369A7C6839A4411AF3553FE35E72C81775FF288294BB631C6F",
     "frontend": "BDCBCC26FE6F7E482E7C27A7111DFD1D73CBD3D20D6708462B8FDF67D9CA73E2"
   },
   "outputs": [
     {
+      "path": ".gitattributes",
+      "bytes": 166,
+      "sha256": "08FEC31C1187E105CFEFF19DB1F14F04A9002A7D9CFD01B052297E6E4EDC8ED4"
+    },
+    {
       "path": ".gitignore",
-      "bytes": 300,
-      "sha256": "FF466E4CAE2E071F570855B4674E8D90E70688342178761527999761D50555FB"
+      "bytes": 278,
+      "sha256": "AB96D6CE3B565C6CC91EC4A04F3ADE6BD54B319CAFDE3616A3CDE0195B3CF806"
     },
     {
       "path": "backend/openapi.json",
-      "bytes": 9453,
-      "sha256": "00809A6FDFBF13C053BCBE3506FE15AC515938A5FA6F6B309E4CB1A969C2A80F"
+      "bytes": 9071,
+      "sha256": "0C08B38D0A8999DF7DECAF5BAA3E438B995FD1D0D0CC17007AE18A17BDC9FA62"
     },
     {
       "path": "backend/pyproject.toml",
-      "bytes": 546,
-      "sha256": "E00AB810D9F10EA28DBA9202C259B91DE3BA809C4CF65B2E188D6E98A117BD07"
+      "bytes": 518,
+      "sha256": "29F62514F4CAFE63912DCA0E2A775AD5B7A4D08C693C5801006124FDA5F71DD2"
     },
     {
       "path": "backend/requirements.lock",
@@ -31,8 +36,8 @@
     },
     {
       "path": "backend/src/api/app.py",
-      "bytes": 3705,
-      "sha256": "5EF4065C96C03E74C6939FA7B731CE0D6134F49C865017A0F61CC592DB636381"
+      "bytes": 3611,
+      "sha256": "1F385B8D3EE9B79C3DD8EB8DF00BD2025814B628EE118AC356130465E2ED4BEC"
     },
     {
       "path": "backend/src/api/dependencies.py",
@@ -181,23 +186,23 @@
     },
     {
       "path": "package.json",
-      "bytes": 1659,
-      "sha256": "9608C761A330AA52D2B49F18E098C8D63F60C139E4C03EB7ADB1C470CC9DC2A1"
+      "bytes": 1625,
+      "sha256": "556A0BF9E8B58008F4E7ED21CDD061629BA5F4F83F7D38D04BCE145E8796EA47"
     },
     {
       "path": "tools/check-api.mjs",
-      "bytes": 1496,
-      "sha256": "D57B38A17CE86D0294AE2D473144FE27193FB5925F0F1871601DFBD44370C276"
+      "bytes": 1461,
+      "sha256": "C446228CFBAE2A9EE26F4B5B6743DDEBD50DB23549E0C848A7C6BA404C1590C0"
     },
     {
       "path": "tools/check-boundaries.mjs",
-      "bytes": 2092,
-      "sha256": "44FADA04F6E3863422D15E9E9B7CE11AB4CA7BA51529B1A1660886BB7030C9B6"
+      "bytes": 2046,
+      "sha256": "08C6426C0DA96FCBBC3173C00F88088EB4934E5D38BB83395AF06C3082FA8A1E"
     },
     {
       "path": "tools/check-boundaries.test.mjs",
-      "bytes": 1259,
-      "sha256": "709A90D824BD39FF8FE2593D253EF66144F9D61E39D79713C84292D03F217D03"
+      "bytes": 1234,
+      "sha256": "E7B37B1D5DC971748CF0B54A4D84BC9C10E07C4901EAE050F80E0098242B437D"
     }
   ],
   "verification": [
